@@ -1,4 +1,4 @@
-import { Hero, Block, Solution } from "./cpt-types";
+import { Hero, Block, Solution, Gallery } from "./cpt-types";
 
 const baseUrl = process.env.WORDPRESS_URL;
 const duration = 3600 * 6
@@ -15,11 +15,18 @@ export const getSolutions = async (): Promise<Solution[]> => {
     return solutions;
 }
 
-// TODO: FILTER BY target_page then SORT by display_order
 export const getBlocks = async (targetPage: string): Promise<Block[]> => {
     const res = await fetch(baseUrl + "/wp-json/wp/v2/section", { next: { revalidate: duration } });
-    let block: Block[] = await res.json();
-    let blocks = block.filter(block => block.status === "publish" && block.meta.target_page.includes(targetPage))
+    let blocks: Block[] = await res.json();
+    blocks = blocks.filter(block => block.status === "publish" && block.meta.target_page.includes(targetPage))
     blocks.sort((a, b) => a.meta.display_order - b.meta.display_order)
-    return block;
+    return blocks;
+}
+
+export const getGalleryById = async (id: string): Promise<Gallery> => {
+    const res = await fetch(baseUrl + "/wp-json/wp/v2/gallery", { next: { revalidate: duration } });
+    const galleries: Gallery[] = await res.json();
+    const gallery = galleries.filter(gallery => id === gallery.meta.link_id)[0]
+
+    return gallery;
 }
