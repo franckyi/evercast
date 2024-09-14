@@ -15,7 +15,7 @@ export default function FeaturedSolutions(props: FeaturedSolutionsProps) {
     const solutions = featuredSolutions.sort((a, b) => a.meta.display_order - b.meta.display_order)
 
     return(
-        <div className="my-4 flex flex-col gap-4">
+        <div className="mb-4 flex flex-col gap-4">
             <div className="w-full py-8 h-[460] relative" key={solutions[0].id}>
                 <div className="mx-auto max-w-5xl flex px-8 relative items-center z-10">
                     <div className="flex flex-col gap-4">
