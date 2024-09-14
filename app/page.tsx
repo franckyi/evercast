@@ -25,13 +25,11 @@ export default async function Home() {
     <Section>
       <HeroSection heroes={heroes} />
       <FeaturedSolutions solutions={solutions} />
-      <Container>
         {
           blocks.map((block, index) => (
             <WpBlock block={block} key={index} />
           ))
         }
-      </Container>
     </Section>
   );
 }

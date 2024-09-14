@@ -148,3 +148,11 @@
 .featured-bg-image {
   margin: 0 !important;
 }
+
+.container--border-b-0 {
+  margin-bottom: 0 !important;
+}
+
+.childHasBorder {
+  padding-bottom: 0 !important;
+}

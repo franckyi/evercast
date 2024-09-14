@@ -189,6 +189,7 @@ export interface Block {
     "template": "",
     "meta": {
         "target_page": string,
+        "block_name": string,
         "display_order": number,
         "button_title": string,
         "button_text": string,

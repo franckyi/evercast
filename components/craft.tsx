@@ -80,13 +80,20 @@ const Section = ({ children, className, id }: SectionProps) => {
 // Container Component
 type ContainerProps = {
   children: React.ReactNode;
+  childHasBorder?: boolean;
   className?: string;
   id?: string;
 };
 
-const Container = ({ children, className, id }: ContainerProps) => {
+const Container = ({ children, childHasBorder, className, id }: ContainerProps) => {
+  let childHasBorderClass = ""
+
+  if (childHasBorder) {
+    childHasBorderClass = "childHasBorder"
+  }
+
   return (
-    <div className={cn("mx-auto max-w-5xl", "p-6 sm:p-8", className)} id={id}>
+    <div className={cn("mx-auto max-w-5xl p-0", "p-6 sm:p-8", className, childHasBorderClass)} id={id}>
       {children}
     </div>
   );

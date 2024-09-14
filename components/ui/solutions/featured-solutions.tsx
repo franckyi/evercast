@@ -43,7 +43,7 @@ export default function FeaturedSolutions(props: FeaturedSolutionsProps) {
             <div className="relative h-[460] flex justify-center">
                 <div className="absolute h-[460] z-10 mx-auto max-w-5xl p-6 sm:p-8 flex gap-4">
                     <div className="w-1/2 h-full" key={solutions[1].id}>
-                        <div className="h-full p-8 flex flex-col gap-4">
+                        <div className="h-full p-8 pl-0 flex flex-col gap-4">
                             <p className={`text-4xl text-muted-foreground font-bold ${fontSecondary.className}`}>{solutions[1].title.rendered}</p>
                             <div className={`text-4xl text-accent font-bold ${fontSecondary.className}`}>
                                 {parse(solutions[1].excerpt.rendered)}

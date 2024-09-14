@@ -112,16 +112,19 @@ const Nav = ({ className, children, id }: NavProps) => {
 };
 
 const Footer = ({office}: {office: Office}) => {
+  
   return (
     <footer className="bg-primary text-primary-foreground">
       <Section>
-        <Container className="flex gap-12 text-2xl font-bold">
-          <a className="text-white" href={`tel:+${office.meta.phone}`}>{office.meta.phone}</a>
-          <a href={`mailto:+${office.meta.email}`}>{office.meta.email}</a>
+        <Container childHasBorder className={`flex gap-12 text-4xl font-bold ${fontSecondary.className}`}>
+          <a className="text-white" href={`tel:${office.meta.phone}`}>{office.meta.phone}</a>
+          <a href={`mailto:${office.meta.email}`}>{office.meta.email}</a>
         </Container>
-        <Container className="border-t border-muted-foreground flex gap-12">
+
+        <Container className="flex px-16 gap-12">
+          <div className="flex pt-8 max-w-5xl w-full gap-16 border-t border-muted-foreground">
           <div className="flex flex-col gap-2 text-sm">
-            <h5 className="font-medium text-base">Oferta</h5>
+            <h5 className={`mb-4 font-bold text-xl ${fontSecondary.className}`}>Oferta</h5>
             {Object.entries(mainMenu).map(([key, href]) => (
               <Link
                 className="hover:underline underline-offset-4"
@@ -133,7 +136,7 @@ const Footer = ({office}: {office: Office}) => {
             ))}
           </div>
           <div className="flex flex-col gap-2 text-sm">
-            <h5 className="font-medium text-base">O evercast</h5>
+            <h5 className={`mb-4 font-bold text-xl ${fontSecondary.className}`}>O evercast</h5>
             {Object.entries(contentMenu).map(([key, href]) => (
               <Link
                 className="hover:underline underline-offset-4"
@@ -143,6 +146,7 @@ const Footer = ({office}: {office: Office}) => {
                 {key.charAt(0).toUpperCase() + key.slice(1)}
               </Link>
             ))}
+          </div>
           </div>
 
         </Container>
