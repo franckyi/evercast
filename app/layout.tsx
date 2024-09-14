@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
+
+import { fontPrimary, fontSecondary } from "@/components/ui/fonts";
 
 import "./globals.css";
 
@@ -11,40 +12,41 @@ import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Main } from "@/components/craft";
 import { mainMenu, contentMenu } from "@/menu.config";
 import { Section, Container } from "@/components/craft";
-import Balancer from "react-wrap-balancer";
 
 import Logo from "@/public/logo.svg";
+import LogoWhite from "@/public/logo_white.svg";
+import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
 
 import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+import { getOfficeBySlug } from "@/lib/cpt-service";
+import { Office } from "@/lib/cpt-types";
 
 export const metadata: Metadata = {
-  title: "WordPress & Next.js Starter by 9d8",
+  title: "Evercast",
   description:
-    "A starter template for Next.js with WordPress as a headless CMS.",
-  metadataBase: new URL("https://wp.9d8.dev"),
+    "Proponowane przez nas rozwiązania transmisyjne oraz komunikacyjne cechuje nowoczesna technologia, bezpieczeństwo oraz niezawodność",
+  metadataBase: new URL("https://evercast.pl"),
 };
 
 // Revalidate content every hour
 export const revalidate = 3600;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
+  const office = await getOfficeBySlug('polnocna')
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pl" suppressHydrationWarning>
       <head />
       <body
-        className={cn("min-h-screen font-sans antialiased", fontSans.variable)}
+        className={cn("min-h-screen antialiased", fontPrimary.className)}
       >
         <ThemeProvider
           attribute="class"
@@ -54,7 +56,7 @@ export default function RootLayout({
         >
           <Nav />
           <Main>{children}</Main>
-          <Footer />
+          <Footer office={office} />
         </ThemeProvider>
         <Analytics />
       </body>
@@ -75,7 +77,7 @@ const Nav = ({ className, children, id }: NavProps) => {
     >
       <div
         id="nav-container"
-        className="max-w-5xl mx-auto py-4 px-6 sm:px-8 flex justify-between items-center"
+        className="max-w-5xl mx-auto py-12 px-6 sm:px-8 flex justify-between items-center"
       >
         <Link
           className="hover:opacity-75 transition-all flex gap-2 items-center"
@@ -86,24 +88,22 @@ const Nav = ({ className, children, id }: NavProps) => {
             src={Logo}
             alt="Logo"
             className="dark:invert"
-            width={84}
-            height={30.54}
+            width={240}
+            height={87}
           ></Image>
         </Link>
         {children}
         <div className="flex items-center gap-2">
           <div className="mx-2 hidden md:flex">
             {Object.entries(mainMenu).map(([key, href]) => (
-              <Button key={href} asChild variant="ghost" size="sm">
+              <Button key={href} asChild variant="ghost" size="lg">
                 <Link href={href}>
-                  {key.charAt(0).toUpperCase() + key.slice(1)}
+                  <span className={`text-2xl font-bold ${fontSecondary.className}`}>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
                 </Link>
               </Button>
             ))}
           </div>
-          <Button asChild className="hidden sm:flex">
-            <Link href="https://github.com/9d8dev/next-wp">Get Started</Link>
-          </Button>
+          <MagnifyingGlassIcon className="w-8 h-8" />
           <MobileNav />
         </div>
       </div>
@@ -111,28 +111,17 @@ const Nav = ({ className, children, id }: NavProps) => {
   );
 };
 
-const Footer = () => {
+const Footer = ({office}: {office: Office}) => {
   return (
-    <footer>
+    <footer className="bg-primary text-primary-foreground">
       <Section>
-        <Container className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">
-          <div className="flex flex-col gap-6 not-prose">
-            <Link href="/">
-              <h3 className="sr-only">brijr/components</h3>
-              <Image
-                src={Logo}
-                alt="Logo"
-                width={120}
-                height={27.27}
-                className="dark:invert hover:opacity-75 transition-all"
-              ></Image>
-            </Link>
-            <p>
-              <Balancer>{metadata.description}</Balancer>
-            </p>
-          </div>
+        <Container className="flex gap-12 text-2xl font-bold">
+          <a className="text-white" href={`tel:+${office.meta.phone}`}>{office.meta.phone}</a>
+          <a href={`mailto:+${office.meta.email}`}>{office.meta.email}</a>
+        </Container>
+        <Container className="border-t border-muted-foreground flex gap-12">
           <div className="flex flex-col gap-2 text-sm">
-            <h5 className="font-medium text-base">Website</h5>
+            <h5 className="font-medium text-base">Oferta</h5>
             {Object.entries(mainMenu).map(([key, href]) => (
               <Link
                 className="hover:underline underline-offset-4"
@@ -144,7 +133,7 @@ const Footer = () => {
             ))}
           </div>
           <div className="flex flex-col gap-2 text-sm">
-            <h5 className="font-medium text-base">Blog</h5>
+            <h5 className="font-medium text-base">O evercast</h5>
             {Object.entries(contentMenu).map(([key, href]) => (
               <Link
                 className="hover:underline underline-offset-4"
@@ -155,13 +144,20 @@ const Footer = () => {
               </Link>
             ))}
           </div>
+
         </Container>
-        <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
+        <Container className="border-t border-muted-foreground not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
           <ThemeToggle />
           <p className="text-muted-foreground">
-            © <a href="https://9d8.dev">9d8</a>. All rights reserved.
-            2024-present.
+            © Evercast 2013 - 2024 Wszsytkie prawa zastrzeżone. Designed by <a href="https://01unit.com">01UNIT</a>
           </p>
+          <Image
+            src={LogoWhite}
+            alt="Logo"
+            className="dark:invert"
+            width={138}
+            height={50}
+          ></Image>
         </Container>
       </Section>
     </footer>

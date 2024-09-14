@@ -281,3 +281,67 @@ export interface Gallery {
         ]
     }
 }
+
+export interface Office {
+    "id": number,
+    "date": string,
+    "date_gmt": string,
+    "guid": {
+        "rendered": string
+    },
+    "modified": string,
+    "modified_gmt": string,
+    "slug": string,
+    "status": string,
+    "type": string,
+    "link": string,
+    "title": {
+        "rendered": string
+    },
+    "content": {
+        "rendered": string,
+        "protected": boolean
+    },
+    "template": string,
+    "meta": {
+        "email": string,
+        "phone": string,
+        "address": string,
+        "hours": string,
+        "company_name": string,
+        "registered_address": string,
+        "krs": string
+        "nip": string
+        "regon": string
+    },
+    "class_list": string[],
+    "_links": {
+        "self": [
+            {
+                "href": string
+            }
+        ],
+        "collection": [
+            {
+                "href": string
+            }
+        ],
+        "about": [
+            {
+                "href": string
+            }
+        ],
+        "wp:attachment": [
+            {
+                "href": string
+            }
+        ],
+        "curies": [
+            {
+                "name": string,
+                "href": string,
+                "templated": boolean
+            }
+        ]
+    }
+}

@@ -1,9 +1,15 @@
 import { Gallery } from "@/lib/cpt-types";
+import parse from 'html-react-parser'
 
-export default function ImageGallery({gallery}: {gallery: Gallery}) {
+type ImageGalleryProps = {
+    gallery: Gallery
+}
+
+export default function ImageGallery({gallery}: ImageGalleryProps) {
+    const figure = parse(gallery.content.rendered)
     return (
-        <div className="flex flex-wrap">
-            {gallery.content.rendered}
+        <div className="gallery flex">
+            {figure}
         </div>
     )
 }

@@ -1,8 +1,10 @@
 import Image from "next/image"
 import parse from 'html-react-parser'
+import { ArrowRightIcon } from '@radix-ui/react-icons'
 import { Solution } from "@/lib/cpt-types"
 import FeaturedImage from "./featured-image"
 import { Button } from "../button"
+import { fontSecondary } from "../fonts"
 
 type FeaturedSolutionsProps = {
     solutions: Solution[]
@@ -14,14 +16,15 @@ export default function FeaturedSolutions(props: FeaturedSolutionsProps) {
 
     return(
         <div className="my-4 flex flex-col gap-4">
-            <div className="w-full h-[460] relative bg-purple-300" key={solutions[0].id}>
-                <div className="mx-auto max-w-5xl flex p-6 sm:p-8 relative z-10">
-                    <div className="w-1/2">
-                        <p>{solutions[0].title.rendered}</p>
+            <div className="w-full py-8 min-h-[460] relative" key={solutions[0].id}>
+                <div className="mx-auto max-w-5xl flex px-8 relative items-center z-10">
+                    <div className="flex flex-col gap-4">
+                        <div className={`text-5xl text-muted-foreground font-bold ${fontSecondary.className}`}>{solutions[0].title.rendered}</div>
+                        <div className={`text-5xl text-accent font-bold ${fontSecondary.className}`}>{parse(solutions[0].content.rendered)}</div>
                         {parse(solutions[0].excerpt.rendered)}
-                        <Button>Dowiedź się więcej</Button>
+                        <Button className="w-[200]" size="lg">Dowiedź się więcej <span className="ml-2"><ArrowRightIcon /></span></Button>
                     </div>
-                    <div className="w-1/2">
+                    <div className="float-right w-1/2">
                         <FeaturedImage
                             id={solutions[0].featured_media}
                             alt={solutions[0].title.rendered}
@@ -29,7 +32,7 @@ export default function FeaturedSolutions(props: FeaturedSolutionsProps) {
                     </div>
                 </div>
                 <Image
-                    className="absolute inset-0 h-full w-full object-cover z-0"
+                    className="featured-bg-image-full absolute inset-0 w-full object-cover z-0"
                     alt={solutions[0].title.rendered}
                     src={solutions[0].meta.bg_img}
                     width={640}
@@ -40,17 +43,21 @@ export default function FeaturedSolutions(props: FeaturedSolutionsProps) {
             <div className="relative h-[460] flex justify-center">
                 <div className="absolute z-10 mx-auto max-w-5xl p-6 sm:p-8 flex gap-4">
                     <div className="w-1/2 h-[460]" key={solutions[1].id}>
-                        <div className="">
-                            <p>{solutions[1].title.rendered}</p>
-                            {parse(solutions[1].excerpt.rendered)}
-                            <Button>Dowiedź się więcej</Button>
+                        <div className="h-full p-8 flex flex-col gap-4">
+                            <p className={`text-5xl text-muted-foreground font-bold ${fontSecondary.className}`}>{solutions[1].title.rendered}</p>
+                            <div className={`text-5xl text-accent font-bold ${fontSecondary.className}`}>
+                                {parse(solutions[1].excerpt.rendered)}
+                            </div>
+                            <Button className="mt-auto w-[200]" size="lg">Dowiedź się więcej <span className="ml-2"><ArrowRightIcon /></span></Button>
                         </div>
                     </div>
                     <div className="w-1/2 h-[460]" key={solutions[2].id}>
-                        <div className="">
-                            <p>{solutions[2].title.rendered}</p>
-                            {parse(solutions[2].excerpt.rendered)}
-                            <Button>Dowiedź się więcej</Button>
+                        <div className="h-full p-8 flex flex-col gap-4">
+                            <p className={`text-5xl text-muted-foreground font-bold ${fontSecondary.className}`}>{solutions[2].title.rendered}</p>
+                            <div className={`text-5xl text-accent font-bold ${fontSecondary.className}`}>
+                                {parse(solutions[2].excerpt.rendered)}
+                            </div>
+                            <Button className="mt-auto w-[200]" size="lg">Dowiedź się więcej <span className="ml-2"><ArrowRightIcon /></span></Button>
                         </div>
                     </div>
                 </div>

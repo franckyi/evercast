@@ -19,9 +19,9 @@ const config = {
       },
     },
     extend: {
-      fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-      },
+      // fontFamily: {
+      //   sans: ["var(--font-primary)", ...fontFamily.sans],
+      // },
       backgroundImage: {
         hero: "url('/.webp')",
         "hero-home": "url('/hero_home_bg.webp')",

@@ -1,4 +1,4 @@
-import { Hero, Block, Solution, Gallery } from "./cpt-types";
+import { Hero, Block, Solution, Gallery, Office } from "./cpt-types";
 
 const baseUrl = process.env.WORDPRESS_URL;
 const duration = 3600 * 6
@@ -23,10 +23,15 @@ export const getBlocks = async (targetPage: string): Promise<Block[]> => {
     return blocks;
 }
 
-export const getGalleryById = async (id: string): Promise<Gallery> => {
+export const getGalleries = async (): Promise<Gallery[]> => {
     const res = await fetch(baseUrl + "/wp-json/wp/v2/gallery", { next: { revalidate: duration } });
     const galleries: Gallery[] = await res.json();
-    const gallery = galleries.filter(gallery => id === gallery.meta.link_id)[0]
+    return galleries;
+}
 
-    return gallery;
+export const getOfficeBySlug = async (slug: string): Promise<Office> => {
+    const res = await fetch(baseUrl + "/wp-json/wp/v2/office", { next: { revalidate: duration } });
+    const offices: Office[] = await res.json();
+    const office = offices.filter(office => office.slug === slug)[0]
+    return office;
 }

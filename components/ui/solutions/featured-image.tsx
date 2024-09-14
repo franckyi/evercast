@@ -7,17 +7,14 @@ type FeaturedImageProps = {
 }
 
 export default async function FeaturedImage(props: FeaturedImageProps) {
-    const baseUrl = process.env.WORDPRESS_URL
-    // const src = await fetch(`${baseUrl}/api/media/${props.id}`).then(res => res.json())
-
     const media = await getFeaturedMediaById(props.id)
 
     return(
         <Image
             alt={props.alt}
             src={media.media_details.sizes.full.source_url}
-            width={290}
-            height={300}
+            width={381}
+            height={395}
         />
     )
 }
