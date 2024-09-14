@@ -4,6 +4,7 @@ import ImageGallery from "./image-gallery";
 import { getGalleries } from "@/lib/cpt-service";
 import { fontSecondary } from "./fonts";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 
 export default async function WpBlock({block}: {block: Block}) {
     const galleries = await getGalleries()
@@ -24,8 +25,8 @@ export default async function WpBlock({block}: {block: Block}) {
             <div className={`w-full p-8 mx-auto max-w-5xl flex justify-between items-center`}>
                 <div className={`text-2xl max-w-[400] text-muted-foreground font-bold ${fontSecondary.className}`}>{block.title.rendered}</div>
                 {block.meta.button_text !== "" &&
-                    <Button size="lg" variant="outline">{block.meta.button_text} <span className="ml-2"><ArrowRightIcon /></span>
-                    </Button>
+                    <Link href="/oferta"><Button size="lg" variant="outline">{block.meta.button_text} <span className="ml-2"><ArrowRightIcon /></span>
+                    </Button></Link>
                 }
                 {gallery && <ImageGallery gallery={gallery} />}
             </div>
