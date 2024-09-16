@@ -1,5 +1,6 @@
 import { Section } from "@/components/craft";
 import FeaturedSolutions from "@/components/ui/solutions/featured-solutions";
+import RemainingSolutions from "@/components/ui/solutions/remaining-solutions";
 import { getSolutions } from "@/lib/cpt-service";
 import { Solution } from "@/lib/cpt-types";
 
@@ -9,7 +10,8 @@ export default async function Oferta() {
     return (
         <Section>
             {/* TODO: SEPARATE FEATURED SOLUTION FROM REST */}
-            <FeaturedSolutions solutions={solutions} />
+            {/* <FeaturedSolutions solutions={solutions} /> */}
+            <RemainingSolutions solutions={solutions} />
         </Section>
     )
 }
