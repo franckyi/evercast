@@ -35,6 +35,12 @@ export const getGalleries = async (): Promise<Gallery[]> => {
     return galleries;
 }
 
+export const getGalleryById = async (id: number): Promise<Gallery> => {
+    const res = await fetch(baseUrl + `/wp-json/wp/v2/gallery/${id}`, { next: { revalidate: duration } });
+    const gallery: Gallery = await res.json();
+    return gallery;
+}
+
 export const getOfficeBySlug = async (slug: string): Promise<Office> => {
     const res = await fetch(baseUrl + "/wp-json/wp/v2/office", { next: { revalidate: duration } });
     const offices: Office[] = await res.json();

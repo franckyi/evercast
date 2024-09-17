@@ -29,14 +29,14 @@ export default function HeroSection({hero, targetPage, solution}: HeroSectionPro
                     <div className={`text-5xl text-white ${fontSecondary.className}`}>
                         {targetPage === "home" ? hero.meta.subtitle : solution?.title?.rendered}
                     </div>
-                    <div className={`mt-4 mb-8 text-5xl text-accent ${fontSecondary.className}`}>
+                    <div className={`mt-4 mb-8 w-2/3 text-5xl tracking-wide text-accent ${fontSecondary.className}`}>
                         {targetPage === "home" ? hero.title.rendered : solution?.meta.short_desc}
                     </div>
-                    <div className="text-md">
+                    <div className="w-2/3 text-md">
                         {targetPage === "home" ? parse(hero.content.rendered) : solutionExcerpt}
                     </div>
                     <Link href="/kontakt" title="kontakt z nami">
-                        <Button className="w-[200]" size="lg">Kontakt <span className="ml-2"><ChatBubbleIcon /></span></Button>
+                        <Button className="w-[120] mt-8" size="lg">Kontakt <span className="ml-2"><ChatBubbleIcon /></span></Button>
                     </Link>
                 </div>
                 {targetPage === "home" && <div className="w-1/3 px-4 py-8 flex flex-col gap-4 text-md border b-2 border-muted rounded-sm">
