@@ -15,6 +15,12 @@ export const getSolutions = async (): Promise<Solution[]> => {
     return solutions;
 }
 
+export const getSolutionById = async (id: number): Promise<Solution> => {
+    const res = await fetch(baseUrl + `/wp-json/wp/v2/solution/${id}`, { next: { revalidate: duration } });
+    const solution: Solution = await res.json();
+    return solution;
+}
+
 export const getBlocks = async (targetPage: string): Promise<Block[]> => {
     const res = await fetch(baseUrl + "/wp-json/wp/v2/section", { next: { revalidate: duration } });
     let blocks: Block[] = await res.json();
