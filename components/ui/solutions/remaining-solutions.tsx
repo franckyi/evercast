@@ -20,7 +20,7 @@ export default function RemainingSolutions(props: FeaturedSolutionProps) {
         <div className="max-w-5xl mx-auto mb-24 flex flex-wrap justify-between gap-4">
             {orderedSolutions.map((solution: Solution) => {
                 return(
-                    <div key={solution.id} className="solution-container w-full md:w-[calc(50%-.5rem)] relative min-h-[460] flex">
+                    <div key={solution.id} className="solution-container w-full md:w-[calc(50%-.5rem)] relative min-h-[460px] flex">
                         <div className="content-wrapper absolute h-[460] z-10 p-8 flex gap-4">
                                 <div className="w-2/3 h-full flex flex-col gap-4">
                                     <p className={`text-4xl text-muted-foreground font-bold ${fontSecondary.className}`}>{solution.title.rendered}</p>
