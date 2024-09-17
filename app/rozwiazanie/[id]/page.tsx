@@ -20,7 +20,7 @@ export default async function Page({ params }: { params: { id: number } }) {
             <HeroSection hero={hero} targetPage="solution" solution={solution} />
             <Container className="mt-20 flex flex-col gap-20">
                 <div className="section flex items-end relative -mt-16">
-                    <div className="section__text w-1/2">
+                    <div className="w-1/2">
                         <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section1_desc1}</p>
                         <p className={`text-3xl text-muted-darker ${fontSecondary.className}`}>{solution.meta.section1_desc2}</p>
                     </div>
@@ -33,14 +33,14 @@ export default async function Page({ params }: { params: { id: number } }) {
                     <div className="w-1/2">
                         <ImageCarousel wpGallery={wpGallery} />
                     </div>
-                    <div className="section__text w-1/2">
+                    <div className="text flex flex-col gap-8 w-1/2">
                         <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section2_desc1}</p>
                         <p className="mt-8">{solution.meta.section2_desc2}</p>
                     </div>
                 </div>
 
                 <div className="section flex gap-20">
-                    <div className="section__text w-1/2">
+                    <div className="flex flex-col gap-8 w-1/2">
                         <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section3_desc1}</p>
                         <p className="">{solution.meta.section3_desc2}</p>
                     </div>
@@ -49,10 +49,10 @@ export default async function Page({ params }: { params: { id: number } }) {
 
                 <div className="section flex gap-20">
                     <Image src={solution.meta.section4_img} width={620} height={643} alt={solution.title.rendered} />
-                    <div className="section__text w-1/2">
+                    <div className="flex flex-col gap-8 w-1/2">
                         <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section4_desc1}</p>
                         {solution.meta.section4_desc2 !== "" &&
-                            <p className={`text-3xl text-muted-darker ${fontSecondary.className}`}>{solution.meta.section4_desc2}</p>
+                            <p className={`mt-8 text-3xl text-muted-darker ${fontSecondary.className}`}>{solution.meta.section4_desc2}</p>
                         }
                     </div>
                 </div>
