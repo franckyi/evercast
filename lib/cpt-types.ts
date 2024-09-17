@@ -20,6 +20,7 @@ export interface Hero {
     },
     "template": string,
     "meta": {
+        "target_page": string,
         "subtitle": string,
         "button1_text": string,
         "button1_icon": string,

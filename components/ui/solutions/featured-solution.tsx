@@ -19,7 +19,7 @@ export default function FeaturedSolution({featuredSolution}: FeaturedSolutionPro
                     <div className={`text-5xl text-muted-foreground font-bold ${fontSecondary.className}`}>{featuredSolution.title.rendered}</div>
                     <div className={`text-5xl text-accent font-bold ${fontSecondary.className}`}>{parse(featuredSolution.content.rendered)}</div>
                     {parse(featuredSolution.excerpt.rendered)}
-                    <Link href={`/rozwiązanie/${featuredSolution.id}`} title={featuredSolution.title.rendered}>
+                    <Link href={`/rozwiazanie/${featuredSolution.id}`} title={featuredSolution.title.rendered}>
                         <Button className="w-[200]" size="lg">Dowiedź się więcej <span className="ml-2"><ArrowRightIcon /></span></Button>
                     </Link>
                 </div>

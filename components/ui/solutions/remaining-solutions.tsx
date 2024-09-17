@@ -27,7 +27,7 @@ export default function RemainingSolutions(props: FeaturedSolutionProps) {
                                     <div className={`text-4xl text-accent font-bold ${fontSecondary.className}`}>
                                         {parse(solution.excerpt.rendered)}
                                     </div>
-                                    <Link href={`/rozwiązanie/${solution.id}`} title={solution.title.rendered}>
+                                    <Link href={`/rozwiazanie/${solution.id}`} title={solution.title.rendered}>
                                         <Button className="mt-auto w-[200]" size="lg">Dowiedź się więcej <span className="ml-2"><ArrowRightIcon /></span></Button>
                                     </Link>
                                 </div>
