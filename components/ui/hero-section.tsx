@@ -3,7 +3,8 @@ import { Hero, Solution } from "@/lib/cpt-types"
 import { usePathname } from "next/navigation"
 import parse from 'html-react-parser'
 import { fontSecondary } from "@/components/ui/fonts";
-import { ArrowRightIcon, ChatBubbleIcon } from '@radix-ui/react-icons'
+import Image from "next/image";
+import { ChatBubbleIcon } from '@radix-ui/react-icons'
 import Link from "next/link";
 import { Button } from "./button";
 
@@ -36,7 +37,9 @@ export default function HeroSection({hero, targetPage, solution}: HeroSectionPro
                         {targetPage === "home" ? parse(hero.content.rendered) : solutionExcerpt}
                     </div>
                     <Link href="/kontakt" title="kontakt z nami">
-                        <Button className="w-[120] mt-8" size="lg">Kontakt <span className="ml-2"><ChatBubbleIcon /></span></Button>
+                        <Button className="w-[120] mt-8 bg-gradient-to-r from-[#E7411B] to-[#B70D18]" size="lg">Kontakt 
+                            <Image className="ml-2 " src="chat-white.svg" width={16} height={16} alt="chat icon" />    
+                        </Button>
                     </Link>
                 </div>
                 {targetPage === "home" && <div className="w-1/3 px-4 py-8 flex flex-col gap-4 text-md border b-2 border-muted rounded-sm">
@@ -45,7 +48,7 @@ export default function HeroSection({hero, targetPage, solution}: HeroSectionPro
                     </div>
                     <p className="pr-4">
                         {hero.meta.announce_desc}
-                        <ArrowRightIcon className="w-5 h-5 float-right text-accent" />
+                        <Image className="float-right" src="arrow-right-red.svg" width={16} height={16} alt="arrow right icon" />
                     </p>
                 </div>}
             </div>

@@ -28,7 +28,9 @@ export default function RemainingSolutions(props: FeaturedSolutionProps) {
                                         {parse(solution.excerpt.rendered)}
                                     </div>
                                     <Link href={`/rozwiazanie/${solution.id}`} title={solution.title.rendered}>
-                                        <Button className="mt-auto w-[200]" size="lg">Dowiedź się więcej <span className="ml-2"><ArrowRightIcon /></span></Button>
+                                        <Button className="mt-auto w-[200] bg-gradient-to-r from-[#E7411B] to-[#B70D18]" size="lg">Dowiedź się więcej
+                                            <Image className="ml-2" src="arrow-right-white.svg" width={16} height={16} alt="arrow right icon" />
+                                        </Button>
                                     </Link>
                                 </div>
                         </div>
