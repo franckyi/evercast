@@ -9,9 +9,9 @@ export default function ImageCarousel({wpGallery}: {wpGallery: string}) {
 
     return (
         <Carousel>
-            {srcList?.map((src, index) => (
-                <CarouselItem key={index} src={src} />
-            ))}
+          {srcList?.map((src, index) => (
+            <CarouselItem key={index} src={src} />
+          ))}
         </Carousel>
     );
 }

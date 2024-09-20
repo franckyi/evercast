@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getGalleries, getHeroes, getSolutionById } from "@/lib/cpt-service";
+import splitSentences from "@/lib/split-sentences";
 import { Section } from "@/components/craft";
 import HeroSection from "@/components/ui/hero-section";
 import { Hero } from "@/lib/cpt-types";
@@ -14,6 +15,9 @@ export default async function Page({ params }: { params: { id: number } }) {
     const gallery = galleries.filter(gallery => gallery.meta.link_id === solution.meta.section2_gallery_id)[0];
     const wpGallery = gallery.content.rendered;
     const hero = heroes.filter(hero => hero.status === "publish")[0];
+
+    const pros = splitSentences(solution.meta.pros, " | ");
+    const useCases = splitSentences(solution.meta.use_cases, " | ");
     
     return (
         <Section>
@@ -57,7 +61,32 @@ export default async function Page({ params }: { params: { id: number } }) {
                     </div>
                 </div>
 
+                <div className="section flex gap-20">
+                    {solution.content.rendered}
+                </div>
+
             </Container>
+
+            <div className="w-full bg-stone-200">
+                <Container className="flex px-16 gap-12">
+                    <div className="flex pt-8 max-w-5xl w-full gap-16">
+                        <div className="w-1/2">
+                            <h2 className="text-accent text-3xl font-bold">Zalety</h2>
+                            <ul>
+                                {pros.map( pro => (
+                                    <li key={pro} className={`text-3xl text-primary ${fontSecondary.className}`}>{pro}</li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="w-1/2">
+                            <h2>Przeznaczenie</h2>
+                            {useCases.map( useCase => (
+                                <p key={useCase} className={`text-3xl text-primary ${fontSecondary.className}`}>{useCase}</p>
+                            ))}
+                        </div>
+                    </div>
+                </Container>
+            </div>
 
             {solution.content.rendered}
         </Section>

@@ -1,6 +1,5 @@
 import Image from "next/image"
 import parse from 'html-react-parser'
-import { ArrowRightIcon } from '@radix-ui/react-icons'
 import { Solution } from "@/lib/cpt-types"
 import FeaturedImage from "./featured-image"
 import { Button } from "../button"
