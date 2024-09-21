@@ -56,7 +56,7 @@ export default async function Page({ params }: { params: { id: number } }) {
                 </div>
 
                 <div className="section flex gap-20">
-                    <Image src={solution.meta.section4_img} width={620} height={643} alt={solution.title.rendered} />
+                    <Image className="w-1/2" src={solution.meta.section4_img} width={620} height={643} alt={solution.title.rendered} />
                     <div className="flex flex-col gap-8 w-1/2">
                         <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section4_desc1}</p>
                         {solution.meta.section4_desc2 !== "" &&
@@ -73,7 +73,7 @@ export default async function Page({ params }: { params: { id: number } }) {
 
             <div className="pros-use-cases-container w-full bg-gradient-to-b from-[#F9F9F9] to-[white]">
                 <Container className="flex px-16 gap-12">
-                    <div className="flex pt-8 max-w-5xl w-full gap-16">
+                    <div className="flex pt-8 max-w-5xl w-full gap-20">
                         <div className="pros-use-cases w-1/2">
                             <h2 className={`text-accent font-bold ${fontSecondary.className}`}>Zalety</h2>
                             <ul style={ {listStyleType: "none", paddingLeft: "0"} } >
