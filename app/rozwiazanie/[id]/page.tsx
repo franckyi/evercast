@@ -67,22 +67,34 @@ export default async function Page({ params }: { params: { id: number } }) {
 
             </Container>
 
-            <div className="w-full bg-stone-200">
+            <div className="w-full bg-stone-100">
                 <Container className="flex px-16 gap-12">
                     <div className="flex pt-8 max-w-5xl w-full gap-16">
-                        <div className="w-1/2">
-                            <h2 className="text-accent text-3xl font-bold">Zalety</h2>
-                            <ul>
+                        <div className="pros-use-cases w-1/2">
+                            <h2 className={`text-accent font-bold ${fontSecondary.className}`}>Zalety</h2>
+                            <ul style={ {listStyleType: "none", paddingLeft: "0"} } >
                                 {pros.map( pro => (
-                                    <li key={pro} className={`text-3xl text-primary ${fontSecondary.className}`}>{pro}</li>
+                                    <li
+                                        key={pro}
+                                        className={`text-3xl text-primary ${fontSecondary.className}`}
+                                        style={ {paddingLeft: "0"} }>
+                                        {pro}
+                                    </li>
                                 ))}
                             </ul>
                         </div>
-                        <div className="w-1/2">
-                            <h2>Przeznaczenie</h2>
-                            {useCases.map( useCase => (
-                                <p key={useCase} className={`text-3xl text-primary ${fontSecondary.className}`}>{useCase}</p>
-                            ))}
+                        <div className="pros-use-cases w-1/2">
+                            <h2 className={`text-accent font-bold ${fontSecondary.className}`}>Przeznaczenie</h2>
+                            <ul style={ {listStyleType: "none", paddingLeft: "0"} } >
+                                {useCases.map( useCase => (
+                                    <li
+                                        key={useCase}
+                                        className={`text-3xl text-primary ${fontSecondary.className}`}
+                                        style={ {paddingLeft: "0"} }>
+                                        {useCase}
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                 </Container>

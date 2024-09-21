@@ -133,6 +133,10 @@
   }
 }
 
+/*
+ * Custom Styles
+*/
+
 .gallery,
 .gallery > figure {
   width: 100%;
@@ -157,4 +161,17 @@
 
 .childHasBorder {
   padding-bottom: 0 !important;
+}
+
+.pros-use-cases h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.pros-use-cases li::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 60px;
+  margin-top: 2rem;
+  background-color: lightgray;
 }
