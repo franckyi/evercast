@@ -16,9 +16,11 @@ export default function FeaturedSolution({featuredSolution}: FeaturedSolutionPro
             <div className="mx-auto max-w-5xl flex px-8 relative items-center z-10">
                 <div className="flex flex-col gap-4">
                     <div className={`text-5xl text-muted-foreground font-bold ${fontSecondary.className}`}>{featuredSolution.title.rendered}</div>
-                    <div className={`text-5xl text-accent font-bold ${fontSecondary.className}`}>{parse(featuredSolution.content.rendered)}</div>
+                    <div className={`text-5xl text-accent font-bold ${fontSecondary.className}`}>
+                        {parse(featuredSolution.content.rendered)}
+                    </div>
                     {parse(featuredSolution.excerpt.rendered)}
-                    <Link href={`/rozwiazanie/${featuredSolution.id}`} title={featuredSolution.title.rendered}>
+                    <Link href={`/rozwiazanie/${featuredSolution.id}`} className="mt-4" title={featuredSolution.title.rendered}>
                         <Button className="w-[200] bg-gradient-to-r from-[#E7411B] to-[#B70D18]" size="lg">Dowiedź się więcej
                             <Image className="ml-2" src="arrow-right-white.svg" width={16} height={16} alt="arrow right icon" />
                         </Button>
