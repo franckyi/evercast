@@ -36,7 +36,7 @@ export default function HeroSection({hero, targetPage, solution}: HeroSectionPro
                         {targetPage === "home" ? parse(hero.content.rendered) : solutionExcerpt}
                     </div>
                     <Link href="/kontakt" title="kontakt z nami">
-                        <Button className="w-[120] mt-8 bg-gradient-to-r from-[#E7411B] to-[#B70D18]" size="lg">Kontakt 
+                        <Button className="w-[120] mt-8 bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18]" size="lg">Kontakt 
                             <Image className="ml-2 " src="/chat-white.svg" width={16} height={16} alt="chat icon" />    
                         </Button>
                     </Link>
