@@ -24,7 +24,6 @@ export default async function Home() {
   const targetPage = "home"
   const wpBlocks: Block[] = await getBlocks(targetPage)
 
-
   return (
     <Section>
       <HeroSection hero={hero} targetPage={targetPage} />

@@ -13,6 +13,7 @@ export default async function FeaturedImage(props: FeaturedImageProps) {
         <Image
             alt={props.alt}
             src={media.media_details.sizes.full.source_url}
+            className="min-w-[200px]"
             width={381}
             height={395}
         />

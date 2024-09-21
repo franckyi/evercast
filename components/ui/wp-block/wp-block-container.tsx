@@ -1,7 +1,7 @@
 'use client'
 import { usePathname } from "next/navigation"
 import { Block, Gallery } from "@/lib/cpt-types"
-import WpBlockButton from "./wp-block-button"
+import WpBlockButton from "@/components/ui/wp-block/wp-block-button"
 import ImageGallery from "@/components/ui/image-gallery"
 import { fontSecondary } from "@/components/ui/fonts"
 
@@ -23,9 +23,11 @@ export default function WpBlockContainer({block, gallery}: {block: Block, galler
 
     return (
         <div className={`w-full flex ${partnersClasses} ${ctaMoreSolutionsClasses}`}>
-            <div className={`w-full ${ctaBlockBgColor} p-8 mx-auto max-w-5xl flex justify-between items-center gap-28`}>
+            <div className={`w-full ${ctaBlockBgColor} p-8 mx-auto max-w-5xl flex flex-wrap lg:flex-nowrap justify-between items-center lg:gap-28`}>
                 
-                <div className={`text-2xl max-w-[400] text-muted-foreground font-bold ${fontSecondary.className}`}>{block.title.rendered}</div>
+                <div className={`text-2xl max-w-[400] text-muted-foreground font-bold ${fontSecondary.className}`}>
+                    {block.title.rendered}
+                </div>
                 
                 {block.meta.button_text !== "" &&
                     <div className="w-1/2 flex flex-col gap-4">

@@ -24,8 +24,8 @@ export default function HeroSection({hero, targetPage, solution}: HeroSectionPro
 
     return (
         <section className={`bg-black dark:bg-gray-900 ${bgImage} text-stone-400 ${targetPage === "solution" ? "-mb-48" : ""}`}>
-            <div className="mx-auto max-w-5xl p-8 py-16 flex flex-wrap lg:flex-nowrap justify-between">
-                <div className="w-2/3">
+            <div className="mx-auto max-w-5xl px-8 py-16 flex flex-wrap gap-8 lg:flex-nowrap justify-between">
+                <div className="md:w-2/3">
                     <div className={`text-5xl text-white ${fontSecondary.className}`}>
                         {targetPage === "home" ? hero.meta.subtitle : solution?.title?.rendered}
                     </div>
@@ -41,7 +41,9 @@ export default function HeroSection({hero, targetPage, solution}: HeroSectionPro
                         </Button>
                     </Link>
                 </div>
-                {targetPage === "home" && <div className="w-1/3 px-4 py-8 flex flex-col gap-4 text-md border b-2 border-muted rounded-sm">
+
+                {targetPage === "home" &&
+                <div className="md:w-1/3 px-4 py-8 flex flex-col gap-4 text-md border b-2 border-muted rounded-sm">
                     <div className={`text-3xl text-white ${fontSecondary.className}`}>
                         {hero.meta.announce_title}
                     </div>
@@ -49,7 +51,9 @@ export default function HeroSection({hero, targetPage, solution}: HeroSectionPro
                         {hero.meta.announce_desc}
                         <Image className="float-right" src="/arrow-right-red.svg" width={16} height={16} alt="arrow right icon" />
                     </p>
-                </div>}
+                </div>
+                }
+
             </div>
         </section>
     )

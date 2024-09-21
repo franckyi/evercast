@@ -137,18 +137,12 @@
  * Custom Styles
 */
 
-.gallery,
-.gallery > figure {
+.gallery {
   width: 100%;
 }
 
-.gallery > figure {
-  display: flex;
-  justify-content: space-around;
-}
-
-.gallery > figure > figure {
-  display: inline-block;
+.gallery img {
+  margin: 5px;
 }
 
 .featured-bg-image {

@@ -10,7 +10,7 @@ export default function ImageGallery({gallery}: ImageGalleryProps) {
     let images = extractImgTags(gallery.content.rendered);
 
     return (
-        <div className="gallery flex gap-4 justify-between items-center">
+        <div className="gallery mt-8 lg:mt-0 flex flex-wrap lg:flex-nowrap gap-4 justify-start lg:justify-between items-center">
             {images.map( image => {
                 return (
                     <>

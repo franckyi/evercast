@@ -23,7 +23,7 @@ export default function WpBlockButton({block}: {block: Block}) {
     }
 
     return(
-        <Link href={targetHref}>
+        <Link href={targetHref} className="mt-8 md:mt-0">
             <Button className="bg-transparent" size="lg" variant="outline">
                 {block.meta.button_text}
                 <Image className="ml-2" src={`/${iconFileName}`} width={16} height={16} alt="" />

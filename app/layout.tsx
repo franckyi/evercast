@@ -79,7 +79,7 @@ const Nav = ({ className, children, id }: NavProps) => {
         className="w-4/6 mx-auto py-12 px-6 sm:px-8 flex justify-between items-center"
       >
         <Link
-          className="hover:opacity-75 transition-all flex gap-2 items-center"
+          className="mr-4 md:mr-0 min-w-[120px] hover:opacity-75 transition-all flex gap-2 items-center"
           href="/"
         >
           <h2 className="sr-only">next-wp starter</h2>
@@ -114,7 +114,7 @@ const Footer = ({office}: {office: Office}) => {
   return (
     <footer className="mt-20 bg-primary text-primary-foreground">
       <Section>
-        <Container noBorderBottom className={`flex gap-12 text-4xl font-bold ${fontSecondary.className}`}>
+        <Container noBorderBottom className={`flex gap-4 lg:gap-12 flex-wrap text-4xl font-bold ${fontSecondary.className}`}>
           <a className="text-white" href={`tel:${office.meta.phone}`}>{office.meta.phone}</a>
           <a href={`mailto:${office.meta.email}`}>{office.meta.email}</a>
         </Container>
@@ -149,7 +149,7 @@ const Footer = ({office}: {office: Office}) => {
         </Container>
 
         <Container noBorderTop className="not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
-          <div className="flex pt-8 max-w-5xl w-full gap-16 justify-between border-t border-muted-foreground">
+          <div className="flex flex-wrap pt-8 max-w-5xl w-full gap-16 justify-between border-t border-muted-foreground">
             <ThemeToggle />
             <p className="text-muted-foreground">
               © Evercast 2013 - 2024 Wszsytkie prawa zastrzeżone. Designed by <a href="https://01unit.com">01UNIT</a>

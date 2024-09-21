@@ -12,8 +12,8 @@ type FeaturedSolutionProps = {
 
 export default function FeaturedSolution({featuredSolution}: FeaturedSolutionProps) {
     return(
-        <div className="w-full py-8 h-[460] relative mb-4 flex flex-col gap-4">
-            <div className="mx-auto max-w-5xl flex px-8 relative items-center z-10">
+        <div className="w-full py-8 h-[460px] min-h-[830px] relative mb-4 flex flex-col gap-4">
+            <div className="mx-auto max-w-5xl flex flex-wrap sm:flex-nowrap px-8 md:relative items-center z-10">
                 <div className="flex flex-col gap-4">
                     <div className={`text-5xl text-muted-foreground font-bold ${fontSecondary.className}`}>
                         {featuredSolution.title.rendered}
@@ -31,7 +31,7 @@ export default function FeaturedSolution({featuredSolution}: FeaturedSolutionPro
                         </Button>
                     </Link>
                 </div>
-                <div className="float-right w-1/2">
+                <div className="float-right sm:w-1/2">
                     <FeaturedImage
                         id={featuredSolution.featured_media}
                         alt={featuredSolution.title.rendered}
@@ -39,7 +39,7 @@ export default function FeaturedSolution({featuredSolution}: FeaturedSolutionPro
                 </div>
             </div>
             <Image
-                className="featured-bg-image absolute inset-0 w-full h-full z-0"
+                className="featured-bg-image absolute inset-0 w-full h-full object-cover z-0"
                 alt={featuredSolution.title.rendered}
                 src={featuredSolution.meta.bg_img}
                 width={640}
