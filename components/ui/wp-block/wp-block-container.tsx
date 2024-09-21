@@ -19,15 +19,11 @@ export default function WpBlockContainer({block, gallery}: {block: Block, galler
         ctaMoreSolutionsClasses = "py-8"
     }
 
-    let ctaClasses = ""
-    let ctaBlockBgColor = pathname === "/" ? "bg-transparent" : "bg-gradient-to-b"
-    if (block.meta.button_title === "") {
-        ctaClasses = `${ctaBlockBgColor} from-[#F9F9F9] to-[#EDEDED]`
-    }
+    let ctaBlockBgColor = pathname === "/" ? "bg-transparent" : "bg-gradient-to-b from-[#F9F9F9] to-[#EDEDED]"
 
     return (
         <div className={`w-full flex ${partnersClasses} ${ctaMoreSolutionsClasses}`}>
-            <div className={`w-full ${ctaClasses} p-8 mx-auto max-w-5xl flex justify-between items-center gap-28`}>
+            <div className={`w-full ${ctaBlockBgColor} p-8 mx-auto max-w-5xl flex justify-between items-center gap-28`}>
                 
                 <div className={`text-2xl max-w-[400] text-muted-foreground font-bold ${fontSecondary.className}`}>{block.title.rendered}</div>
                 
