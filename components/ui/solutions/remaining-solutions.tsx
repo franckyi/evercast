@@ -22,17 +22,19 @@ export default function RemainingSolutions(props: FeaturedSolutionProps) {
                 return(
                     <div key={solution.id} className="solution-container w-full md:w-[calc(50%-.5rem)] relative min-h-[460px] flex">
                         <div className="content-wrapper absolute h-[460] z-10 p-8 flex gap-4">
-                                <div className="w-2/3 h-full flex flex-col gap-4">
-                                    <p className={`text-4xl text-muted-foreground font-bold ${fontSecondary.className}`}>{solution.title.rendered}</p>
-                                    <div className={`text-4xl text-accent font-bold ${fontSecondary.className}`}>
-                                        {parse(solution.excerpt.rendered)}
-                                    </div>
-                                    <Link href={`/rozwiazanie/${solution.id}`} className="mt-auto" title={solution.title.rendered}>
-                                        <Button className="w-[200] bg-gradient-to-r from-[#E7411B] to-[#B70D18]" size="lg">Dowiedź się więcej
-                                            <Image className="ml-2" src="/arrow-right-white.svg" width={16} height={16} alt="arrow right icon" />
-                                        </Button>
-                                    </Link>
+                            <div className="w-2/3 h-full flex flex-col gap-4">
+                                <p className={`text-4xl text-muted-foreground font-bold ${fontSecondary.className}`}>
+                                    {solution.title.rendered}
+                                </p>
+                                <div className={`text-4xl text-accent font-bold ${fontSecondary.className}`}>
+                                    {parse(solution.excerpt.rendered)}
                                 </div>
+                                <Link href={`/rozwiazanie/${solution.id}`} className="mt-auto" title={solution.title.rendered}>
+                                    <Button className="w-[200] bg-gradient-to-r from-[#E7411B] to-[#B70D18]" size="lg">Dowiedź się więcej
+                                        <Image className="ml-2" src="/arrow-right-white.svg" width={16} height={16} alt="arrow right icon" />
+                                    </Button>
+                                </Link>
+                            </div>
                         </div>
                         <Image
                             className="featured-bg-image inset-0 grow h-full object-cover"

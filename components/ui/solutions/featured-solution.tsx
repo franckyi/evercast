@@ -15,7 +15,9 @@ export default function FeaturedSolution({featuredSolution}: FeaturedSolutionPro
         <div className="w-full py-8 h-[460] relative mb-4 flex flex-col gap-4">
             <div className="mx-auto max-w-5xl flex px-8 relative items-center z-10">
                 <div className="flex flex-col gap-4">
-                    <div className={`text-5xl text-muted-foreground font-bold ${fontSecondary.className}`}>{featuredSolution.title.rendered}</div>
+                    <div className={`text-5xl text-muted-foreground font-bold ${fontSecondary.className}`}>
+                        {featuredSolution.title.rendered}
+                    </div>
                     <div className={`text-5xl text-accent font-bold ${fontSecondary.className}`}>
                         {parse(featuredSolution.content.rendered)}
                     </div>
