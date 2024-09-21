@@ -24,7 +24,7 @@ export default function HeroSection({hero, targetPage, solution}: HeroSectionPro
     }
 
     return (
-        <section className={`bg-black dark:bg-gray-900 ${bgImage} text-stone-400`}>
+        <section className={`bg-black dark:bg-gray-900 ${bgImage} text-stone-400 ${targetPage === "solution" ? "-mb-48" : ""}`}>
             <div className="mx-auto max-w-5xl p-8 py-16 flex flex-wrap lg:flex-nowrap justify-between">
                 <div className="w-2/3">
                     <div className={`text-5xl text-white ${fontSecondary.className}`}>
