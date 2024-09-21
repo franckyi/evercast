@@ -2,8 +2,8 @@
 import { usePathname } from "next/navigation"
 import { Block, Gallery } from "@/lib/cpt-types"
 import WpBlockButton from "./wp-block-button"
-import ImageGallery from "./image-gallery"
-import { fontSecondary } from "./fonts"
+import ImageGallery from "@/components/ui/image-gallery"
+import { fontSecondary } from "@/components/ui/fonts"
 
 export default function WpBlockContainer({block, gallery}: {block: Block, gallery: Gallery}) {
     const pathname = usePathname()

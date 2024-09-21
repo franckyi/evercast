@@ -7,7 +7,7 @@ import { Block, Hero } from "@/lib/cpt-types";
 import { Container } from "@/components/craft";
 import ImageCarousel from "@/components/ui/image-carousel";
 import { fontSecondary } from "@/components/ui/fonts";
-import WpBlock from "@/components/ui/wp-block";
+import WpBlock from "@/components/ui/wp-block/wp-block";
 
 export default async function Page({ params }: { params: { id: number } }) {
     const heroes: Hero[] = await getHeroes();

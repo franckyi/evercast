@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "./button";
+import { Button } from "@/components/ui/button";
 import { Block } from "@/lib/cpt-types";
 import { usePathname } from "next/navigation";
 

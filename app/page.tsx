@@ -1,5 +1,5 @@
 // Craft Imports
-import { Section, Container } from "@/components/craft";
+import { Section } from "@/components/craft";
 
 // Library Imports
 import { getHeroes, getBlocks, getSolutions } from "@/lib/cpt-service";
@@ -10,7 +10,7 @@ import FeaturedSolution from "@/components/ui/solutions/featured-solution";
 import { Hero, Solution, Block } from "@/lib/cpt-types";
 
 // Icons
-import WpBlock from "@/components/ui/wp-block";
+import WpBlock from "@/components/ui/wp-block/wp-block";
 import RemainingSolutions from "@/components/ui/solutions/remaining-solutions";
 
 // This page is using the craft.tsx component and design system

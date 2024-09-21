@@ -1,6 +1,6 @@
 import { Block } from "@/lib/cpt-types";
 import { getGalleries } from "@/lib/cpt-service";
-import WpBlockContainer from "./wp-block-container";
+import WpBlockContainer from "@/components/ui/wp-block/wp-block-container";
 
 export default async function WpBlock({block}: {block: Block}) {
     const galleries = await getGalleries()
