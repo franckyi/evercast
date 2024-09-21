@@ -12,7 +12,7 @@ type FeaturedSolutionProps = {
 
 export default function FeaturedSolution({featuredSolution}: FeaturedSolutionProps) {
     return(
-        <div className="w-full py-8 h-[460px] min-h-[830px] relative mb-4 flex flex-col gap-4">
+        <div className="w-full py-8 max-sm:min-h-[830px] h-[460px] relative mb-4 flex flex-col gap-4">
             <div className="mx-auto max-w-5xl flex flex-wrap sm:flex-nowrap px-8 md:relative items-center z-10">
                 <div className="flex flex-col gap-4">
                     <div className={`text-5xl text-muted-foreground font-bold ${fontSecondary.className}`}>

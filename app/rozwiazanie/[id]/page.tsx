@@ -26,38 +26,38 @@ export default async function Page({ params }: { params: { id: number } }) {
     return (
         <Section>
             <HeroSection hero={hero} targetPage={targetPage} solution={solution} />
-            <Container className="mt-20 flex flex-col gap-20">
-                <div className="section flex items-end relative">
-                    <div className="w-1/2">
+            <Container className="mt-20 flex flex-col gap-8 xl:gap-20">
+                <div className="section flex flex-wrap items-end relative">
+                    <div className="lg:w-1/2">
                         <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section1_desc1}</p>
                         <p className={`text-3xl text-muted-darker ${fontSecondary.className}`}>{solution.meta.section1_desc2}</p>
                     </div>
-                    <div className="">
+                    <div>
                         <Image src={solution.meta.section1_img} width={400} height={415} alt={solution.title.rendered} />
                     </div>
                 </div>
 
-                <div className="section flex gap-20">
-                    <div className="w-1/2">
+                <div className="section flex lg:flex-nowrap lg:gap-20">
+                    <div className="w-full lg:w-1/2">
                         <ImageCarousel wpGallery={wpGallery} />
                     </div>
-                    <div className="text flex flex-col gap-8 w-1/2">
+                    <div className="text mt-8 lg:mt-0 flex flex-col gap-8 w-full lg:w-1/2">
                         <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section2_desc1}</p>
                         <p className="mt-8">{solution.meta.section2_desc2}</p>
                     </div>
                 </div>
 
-                <div className="section flex gap-20">
-                    <div className="flex flex-col gap-8 w-1/2">
+                <div className="section flex lg:flex-nowrap gap-20">
+                    <div className="flex flex-col gap-8 w-full lg:w-1/2">
                         <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section3_desc1}</p>
                         <p className="">{solution.meta.section3_desc2}</p>
                     </div>
-                    <Image className="w-1/2" src={solution.meta.section3_img} width={620} height={643} alt={solution.title.rendered} />
+                    <Image className="w-full lg:w-1/2" src={solution.meta.section3_img} width={620} height={643} alt={solution.title.rendered} />
                 </div>
 
-                <div className="section flex gap-20">
-                    <Image className="w-1/2" src={solution.meta.section4_img} width={620} height={643} alt={solution.title.rendered} />
-                    <div className="flex flex-col gap-8 w-1/2">
+                <div className="section flex lg:flex-nowrap gap-20">
+                    <Image className="w-full lg:w-1/2" src={solution.meta.section4_img} width={620} height={643} alt={solution.title.rendered} />
+                    <div className="flex flex-col gap-8 w-full lg:w-1/2">
                         <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section4_desc1}</p>
                         {solution.meta.section4_desc2 !== "" &&
                             <p className={`mt-8 text-3xl text-muted-darker ${fontSecondary.className}`}>{solution.meta.section4_desc2}</p>
@@ -73,8 +73,8 @@ export default async function Page({ params }: { params: { id: number } }) {
 
             <div className="pros-use-cases-container w-full bg-gradient-to-b from-[#F9F9F9] to-[white]">
                 <Container className="flex px-16 gap-12">
-                    <div className="flex pt-8 max-w-5xl w-full gap-20">
-                        <div className="pros-use-cases w-1/2">
+                    <div className="flex flex-wrap md:flex-nowrap pt-8 max-w-5xl w-full gap-20">
+                        <div className="pros-use-cases w-full md:w-1/2">
                             <h2 className={`text-accent font-bold ${fontSecondary.className}`}>Zalety</h2>
                             <ul style={ {listStyleType: "none", paddingLeft: "0"} } >
                                 {pros.map( pro => (
@@ -87,7 +87,7 @@ export default async function Page({ params }: { params: { id: number } }) {
                                 ))}
                             </ul>
                         </div>
-                        <div className="pros-use-cases w-1/2">
+                        <div className="pros-use-cases w-full md:w-1/2">
                             <h2 className={`text-accent font-bold ${fontSecondary.className}`}>Przeznaczenie</h2>
                             <ul style={ {listStyleType: "none", paddingLeft: "0"} } >
                                 {useCases.map( useCase => (
