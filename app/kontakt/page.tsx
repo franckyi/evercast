@@ -1,20 +1,26 @@
+import { Section, Container } from "@/components/craft";
+import { fontSecondary } from "@/components/ui/fonts";
 import { getOfficeBySlug } from "@/lib/cpt-service";
 
 export default async function Page() {
     const office = await getOfficeBySlug('polnocna')
 
     return (
-        <div>
-            <h1>evercast</h1>
-            <div>{office.meta.address}</div>
-            <div>{office.meta.phone}</div>
-            <div>{office.meta.email}</div>
-            <div>{office.meta.hours}</div>
-            <div>{office.meta.company_name}</div>
-            <div>{office.meta.registered_address}</div>
-            <div>{office.meta.krs}</div>
-            <div>{office.meta.nip}</div>
-            <div>{office.meta.regon}</div>
-        </div>
+        <Container className={`max-w-5xl flex px-16 gap-4 flex-col pt-8 ${fontSecondary.className}`}>
+            <h1 className="text-accent">evercast</h1>
+            <div className="max-w-[300px] text-stone-900 text-3xl">{office.meta.address}</div>
+            <div className="text-stone-900 text-3xl">{office.meta.phone}</div>
+            <div className="text-stone-900 text-3xl">{office.meta.email}</div>
+            <div className="text-accent text-xl">Pracujemy</div>
+            <div className="text-stone-900 text-3xl">{office.meta.hours}</div>
+            <div className="text-accent text-xl">Dane rejestrowe</div>
+            <div className="text-stone-900 text-3xl">{office.meta.company_name}</div>
+            <div className="text-stone-900 text-3xl">{office.meta.registered_address}</div>
+            <div>
+                <div className="text-stone-900 text-2xl">KRS: {office.meta.krs}</div>
+                <div className="text-stone-900 text-2xl">NIP: {office.meta.nip}</div>
+                <div className="text-stone-900 text-2xl">REGON: {office.meta.regon}</div>
+            </div>
+        </Container>
     );
 }
