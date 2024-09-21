@@ -10,7 +10,7 @@ export default async function Oferta() {
     const remainingSolutions = solutions.filter(solution => solution != featuredSolution)
     
     return (
-        <Section className="py-4">
+        <Section>
             <FeaturedSolution featuredSolution={featuredSolution} />
             <RemainingSolutions solutions={remainingSolutions} />
         </Section>
