@@ -6,13 +6,14 @@ import { Solution } from "@/lib/cpt-types";
 
 export default async function Oferta() {
     const solutions: Solution[] = await getSolutions()
-    const featuredSolution = solutions.filter(solution => solution.categories.includes(17) && solution.status === "publish")[0]
-    const FilteredSolutions = solutions.filter(solution => !solution.categories.includes(17) && solution.status === "publish")
+    const featuredSolution = solutions.filter(solution => solution.categories.includes(17))[0]
+    const FilteredSolutions = solutions.filter(solution => !solution.categories.includes(17))
     
     return (
         <Section className="py-4">
             <FeaturedSolution featuredSolution={featuredSolution} />
-            <RemainingSolutions solutions={FilteredSolutions} limit={-1} />
+            {/* <RemainingSolutions solutions={FilteredSolutions} limit={-1} /> */}
+            <RemainingSolutions solutions={FilteredSolutions} />
         </Section>
     )
 }

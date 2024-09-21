@@ -12,7 +12,8 @@ export const getHeroes = async (): Promise<Hero[]> => {
 
 export const getSolutions = async (): Promise<Solution[]> => {
     const res = await fetch(baseUrl + "/wp-json/wp/v2/solution", revalidation);
-    const solutions: Solution[] = await res.json();
+    let solutions: Solution[] = await res.json();
+    solutions = solutions.filter(solution => solution.status === "publish")
     return solutions;
 }
 

@@ -8,12 +8,14 @@ import Link from "next/link"
 
 type FeaturedSolutionProps = {
     solutions: Solution[],
-    limit: number
+    // startIndex: number,
+    // limit: number
 }
 
 export default function RemainingSolutions(props: FeaturedSolutionProps) {
-    const solutions = props.solutions.slice(0, props.limit)
-    const remainingSolutions = solutions.filter(solution => !solution.categories.includes(17) && solution.status === "publish")
+    // const solutions = props.solutions.slice(0, props.limit)
+    const solutions = props.solutions.slice(0, -1)
+    const remainingSolutions = solutions.filter(solution => !solution.categories.includes(17))
     const orderedSolutions = remainingSolutions.sort((a, b) => a.meta.display_order - b.meta.display_order)
 
     return(
