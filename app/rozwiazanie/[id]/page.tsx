@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: { id: number } }) {
         <Section>
             <HeroSection hero={hero} targetPage={targetPage} solution={solution} />
             <Container className="mt-20 flex flex-col gap-20">
-                <div className="section flex items-end relative -mt-16">
+                <div className="section flex items-end relative">
                     <div className="w-1/2">
                         <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section1_desc1}</p>
                         <p className={`text-3xl text-muted-darker ${fontSecondary.className}`}>{solution.meta.section1_desc2}</p>

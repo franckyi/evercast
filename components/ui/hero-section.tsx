@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation"
 import parse from 'html-react-parser'
 import { fontSecondary } from "@/components/ui/fonts";
 import Image from "next/image";
-import { ChatBubbleIcon } from '@radix-ui/react-icons'
 import Link from "next/link";
 import { Button } from "./button";
 

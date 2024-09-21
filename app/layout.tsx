@@ -15,7 +15,6 @@ import { Section, Container } from "@/components/craft";
 
 import Logo from "@/public/logo.svg";
 import LogoWhite from "@/public/logo_white.svg";
-import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
 
 import Image from "next/image";
 import Link from "next/link";
@@ -103,7 +102,6 @@ const Nav = ({ className, children, id }: NavProps) => {
               </Button>
             ))}
           </div>
-          {/* <MagnifyingGlassIcon className="w-8 h-8" /> */}
           <MobileNav />
         </div>
       </div>
@@ -114,7 +112,7 @@ const Nav = ({ className, children, id }: NavProps) => {
 const Footer = ({office}: {office: Office}) => {
   
   return (
-    <footer className="mt-28 bg-primary text-primary-foreground">
+    <footer className="mt-20 bg-primary text-primary-foreground">
       <Section>
         <Container noBorderBottom className={`flex gap-12 text-4xl font-bold ${fontSecondary.className}`}>
           <a className="text-white" href={`tel:${office.meta.phone}`}>{office.meta.phone}</a>
