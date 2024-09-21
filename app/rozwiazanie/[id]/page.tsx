@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { id: number } }) {
                         <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section1_desc1}</p>
                         <p className={`text-3xl text-muted-darker ${fontSecondary.className}`}>{solution.meta.section1_desc2}</p>
                     </div>
-                    <div>
+                    <div className="relative z-40">
                         <Image src={solution.meta.section1_img} width={400} height={415} alt={solution.title.rendered} />
                     </div>
                 </div>
@@ -71,7 +71,7 @@ export default async function Page({ params }: { params: { id: number } }) {
 
             </Container>
 
-            <div className="pros-use-cases-container w-full bg-gradient-to-b from-[#F9F9F9] to-[white]">
+            <div className="pros-use-cases-container w-full light:bg-gradient-to-b from-[#F9F9F9] to-[white] dark:bg-stone-800">
                 <Container className="flex px-16 gap-12">
                     <div className="flex flex-wrap md:flex-nowrap pt-8 max-w-5xl w-full gap-20">
                         <div className="pros-use-cases w-full md:w-1/2">

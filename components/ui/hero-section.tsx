@@ -23,13 +23,13 @@ export default function HeroSection({hero, targetPage, solution}: HeroSectionPro
     }
 
     return (
-        <section className={`bg-black dark:bg-gray-900 ${bgImage} text-stone-400 ${targetPage === "solution" ? "lg:-mb-60" : ""}`}>
+        <section className={`relative z-20 bg-black dark:bg-gray-900 ${bgImage} text-stone-400 ${targetPage === "solution" ? "lg:-mb-60" : ""}`}>
             <div className="mx-auto max-w-5xl px-8 py-16 flex flex-wrap gap-8 lg:flex-nowrap justify-between">
                 <div className="md:w-2/3">
                     <div className={`text-5xl text-white ${fontSecondary.className}`}>
                         {targetPage === "home" ? hero.meta.subtitle : solution?.title?.rendered}
                     </div>
-                    <div className={`mt-4 mb-8 lg:w-2/3 text-5xl tracking-wide text-accent ${fontSecondary.className}`}>
+                    <div className={`mt-4 mb-8 lg:w-2/3 text-5xl tracking-wide text-accent dark:text-accent ${fontSecondary.className}`}>
                         {targetPage === "home" ? hero.title.rendered : solution?.meta.short_desc}
                     </div>
                     <div className="w-2/3 text-md">

@@ -58,7 +58,7 @@ export default async function Page({
             ))}
           </div>
         ) : (
-          <div className="h-24 w-full border rounded-lg bg-accent/25 flex items-center justify-center">
+          <div className="h-24 w-full border rounded-lg bg-stone-100 dark:bg-black flex items-center justify-center">
             <p>No Results Found</p>
           </div>
         )}

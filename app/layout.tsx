@@ -112,7 +112,7 @@ const Nav = ({ className, children, id }: NavProps) => {
 const Footer = ({office}: {office: Office}) => {
   
   return (
-    <footer className="mt-20 bg-primary text-primary-foreground">
+    <footer className="mt-20 bg-primary text-primary-foreground dark:bg-primary-foreground dark:text-primary">
       <Section>
         <Container noBorderBottom className={`flex gap-4 lg:gap-12 flex-wrap text-4xl font-bold ${fontSecondary.className}`}>
           <a className="text-white" href={`tel:${office.meta.phone}`}>{office.meta.phone}</a>

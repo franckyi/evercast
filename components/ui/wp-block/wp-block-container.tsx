@@ -7,7 +7,7 @@ import { fontSecondary } from "@/components/ui/fonts"
 
 export default function WpBlockContainer({block, gallery}: {block: Block, gallery: Gallery}) {
     const pathname = usePathname()
-    let partnerBlockBgColor = pathname === "/" ? "bg-stone-100" : "bg-transparent"
+    let partnerBlockBgColor = pathname === "/" ? "bg-stone-100 dark:bg-stone-800" : "bg-transparent"
 
     let partnersClasses = ""
     if (block.meta.block_name === "partners") {
@@ -19,7 +19,7 @@ export default function WpBlockContainer({block, gallery}: {block: Block, galler
         ctaMoreSolutionsClasses = "py-8"
     }
 
-    let ctaBlockBgColor = pathname === "/" ? "bg-transparent" : "bg-gradient-to-b from-[#F9F9F9] to-[#EDEDED]"
+    let ctaBlockBgColor = pathname === "/" ? "bg-transparent" : "light:bg-gradient-to-b from-[#F9F9F9] to-[#EDEDED] dark:bg-gradient-none dark:bg-stone-950"
 
     return (
         <div className={`w-full flex ${partnersClasses} ${ctaMoreSolutionsClasses}`}>
