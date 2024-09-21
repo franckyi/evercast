@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 512.02966 448"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="chat-red.svg"
+   width="512.02966"
+   height="448"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.5730364"
+     inkscape:cx="241.25316"
+     inkscape:cy="259.68884"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+  <path
+     d="m 512.02966,208 c 0,114.9 -114.6,208 -256,208 -37.1,0 -72.3,-6.4 -104.1,-17.9 -11.9,8.7 -31.3,20.6 -54.300005,30.6 -24,10.4 -52.9,19.3 -81.6,19.3 -6.4999999,0 -12.2999999,-3.9 -14.7999999,-9.9 -2.5,-6 -1.09999999,-12.8 3.4,-17.4 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 l 0.3,-0.3 c 0.3,-0.3 0.7,-0.7 1.3,-1.4 1.1,-1.2 2.8,-3.1 4.8999999,-5.7 4.1,-5 9.6,-12.4 15.2,-21.6 10,-16.6 19.5,-38.4 21.4,-62.9 -30,-34 -47.69999989,-75.7 -47.69999989,-120.8 C 0.02965511,93.1 114.62966,0 256.02966,0 c 141.4,0 256,93.1 256,208 z"
+     id="path1"
+     style="fill:#f50f0f;fill-opacity:1" />
+</svg>

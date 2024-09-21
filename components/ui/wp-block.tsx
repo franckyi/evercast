@@ -20,16 +20,25 @@ export default async function WpBlock({block}: {block: Block}) {
         ctaMoreSolutionsClasses = "py-8"
     }
 
+    const contactUsClasses = "bg-gradient-to-b from-[#F9F9F9] to-[#EDEDED]"
+
     return (
         <div className={`w-full flex ${partnersClasses} ${ctaMoreSolutionsClasses}`}>
-            <div className={`w-full p-8 mx-auto max-w-5xl flex justify-between items-center`}>
+            <div className={`w-full ${contactUsClasses} p-8 mx-auto max-w-5xl flex justify-between items-center`}>
                 <div className={`text-2xl max-w-[400] text-muted-foreground font-bold ${fontSecondary.className}`}>{block.title.rendered}</div>
                 {block.meta.button_text !== "" &&
-                    <Link href="/oferta">
-                        <Button size="lg" variant="outline">{block.meta.button_text}
-                            <Image className="ml-2" src="arrow-right-black.svg" width={16} height={16} alt="arrow right icon" />
-                        </Button>
-                    </Link>
+                    <div>
+
+                        {block.meta.button_title !== "" &&
+                            <p className={`text-accent text-2xl ${fontSecondary.className}`}>{block.meta.button_title}</p>
+                        }
+
+                        <Link href="/oferta">
+                            <Button className="bg-transparent" size="lg" variant="outline">{block.meta.button_text}
+                                <Image className="ml-2" src="/chat-red.svg" width={16} height={16} alt="contact us icon" />
+                            </Button>
+                        </Link>
+                    </div>
                 }
                 {gallery && <ImageGallery gallery={gallery} />}
             </div>

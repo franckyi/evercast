@@ -38,7 +38,7 @@ export default function HeroSection({hero, targetPage, solution}: HeroSectionPro
                     </div>
                     <Link href="/kontakt" title="kontakt z nami">
                         <Button className="w-[120] mt-8 bg-gradient-to-r from-[#E7411B] to-[#B70D18]" size="lg">Kontakt 
-                            <Image className="ml-2 " src="chat-white.svg" width={16} height={16} alt="chat icon" />    
+                            <Image className="ml-2 " src="/chat-white.svg" width={16} height={16} alt="chat icon" />    
                         </Button>
                     </Link>
                 </div>
@@ -48,7 +48,7 @@ export default function HeroSection({hero, targetPage, solution}: HeroSectionPro
                     </div>
                     <p className="pr-4">
                         {hero.meta.announce_desc}
-                        <Image className="float-right" src="arrow-right-red.svg" width={16} height={16} alt="arrow right icon" />
+                        <Image className="float-right" src="/arrow-right-red.svg" width={16} height={16} alt="arrow right icon" />
                     </p>
                 </div>}
             </div>

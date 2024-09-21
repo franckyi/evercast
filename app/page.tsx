@@ -19,18 +19,20 @@ export default async function Home() {
   const hero = heroes.filter(hero => hero.status === "publish")[0]
   const solutions: Solution[] = await getSolutions()
   const featuredSolution = solutions.filter(solution => solution.categories.includes(17) && solution.status === "publish")[0]
-  const blocks: Block[] = await getBlocks("home")
+  
+  const targetPage = "home"
+  const wpBlocks: Block[] = await getBlocks(targetPage)
 
   return (
     <Section>
-      <HeroSection hero={hero} targetPage="home" />
+      <HeroSection hero={hero} targetPage={targetPage} />
       <FeaturedSolution featuredSolution={featuredSolution} />
       <RemainingSolutions solutions={solutions} limit={2} />
-        {
-          blocks.map((block, index) => (
-            <WpBlock block={block} key={index} />
-          ))
-        }
+      {
+        wpBlocks.map((block, index) => (
+          <WpBlock block={block} key={index} />
+        ))
+      }
     </Section>
   );
 }

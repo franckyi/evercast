@@ -1,27 +1,31 @@
 import Image from "next/image";
-import { getGalleries, getHeroes, getSolutionById } from "@/lib/cpt-service";
+import { getBlocks, getGalleries, getHeroes, getSolutionById } from "@/lib/cpt-service";
 import splitSentences from "@/lib/split-sentences";
 import { Section } from "@/components/craft";
 import HeroSection from "@/components/ui/hero-section";
-import { Hero } from "@/lib/cpt-types";
+import { Block, Hero } from "@/lib/cpt-types";
 import { Container } from "@/components/craft";
 import ImageCarousel from "@/components/ui/image-carousel";
 import { fontSecondary } from "@/components/ui/fonts";
+import WpBlock from "@/components/ui/wp-block";
 
 export default async function Page({ params }: { params: { id: number } }) {
     const heroes: Hero[] = await getHeroes();
+    const hero = heroes.filter(hero => hero.status === "publish")[0];
     const solution = await getSolutionById(params.id);
     const galleries = await getGalleries();
     const gallery = galleries.filter(gallery => gallery.meta.link_id === solution.meta.section2_gallery_id)[0];
     const wpGallery = gallery.content.rendered;
-    const hero = heroes.filter(hero => hero.status === "publish")[0];
 
     const pros = splitSentences(solution.meta.pros, " | ");
     const useCases = splitSentences(solution.meta.use_cases, " | ");
+
+    const targetPage = "solution";
+    const wpBlocks: Block[] = await getBlocks(targetPage)
     
     return (
         <Section>
-            <HeroSection hero={hero} targetPage="solution" solution={solution} />
+            <HeroSection hero={hero} targetPage={targetPage} solution={solution} />
             <Container className="mt-20 flex flex-col gap-20">
                 <div className="section flex items-end relative -mt-16">
                     <div className="w-1/2">
@@ -67,7 +71,7 @@ export default async function Page({ params }: { params: { id: number } }) {
 
             </Container>
 
-            <div className="w-full bg-stone-100">
+            <div className="pros-use-cases-container w-full bg-gradient-to-b from-[#F9F9F9] to-[white]">
                 <Container className="flex px-16 gap-12">
                     <div className="flex pt-8 max-w-5xl w-full gap-16">
                         <div className="pros-use-cases w-1/2">
@@ -101,6 +105,14 @@ export default async function Page({ params }: { params: { id: number } }) {
             </div>
 
             {solution.content.rendered}
+
+            {
+                wpBlocks.map((block, index) => (
+                <WpBlock block={block} key={index} />
+                ))
+            }
+
+
         </Section>
     );
 }
