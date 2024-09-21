@@ -9,8 +9,8 @@ export default async function Page() {
         <Container className={`max-w-5xl flex px-16 gap-4 flex-col pt-8 ${fontSecondary.className}`}>
             <h1 className="text-accent">evercast</h1>
             <div className="max-w-[300px] text-stone-900 text-3xl">{office.meta.address}</div>
-            <div className="text-stone-900 text-3xl">{office.meta.phone}</div>
-            <div className="text-stone-900 text-3xl">{office.meta.email}</div>
+            <a href={`tel:${office.meta.phone}`} className="text-stone-900 text-3xl">{office.meta.phone}</a>
+            <a href={`mailto:${office.meta.email}`} className="text-stone-900 text-3xl">{office.meta.email}</a>
             <div className="text-accent text-xl">Pracujemy</div>
             <div className="text-stone-900 text-3xl">{office.meta.hours}</div>
             <div className="text-accent text-xl">Dane rejestrowe</div>
