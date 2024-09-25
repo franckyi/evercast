@@ -29,7 +29,7 @@ export default function HeroSection({hero, targetPage, solution, bg}: HeroSectio
             {isSolution &&
                 <Image
                     src={bg}
-                    className="solution-hero-bg-image absolute max-h-[540px] opacity-10 w-full object-cover"
+                    className="solution-hero-bg-image absolute max-h-[540px] opacity-10 w-full h-full object-cover"
                     width={1920}
                     height={540}
                     alt=""
@@ -53,7 +53,7 @@ export default function HeroSection({hero, targetPage, solution, bg}: HeroSectio
                         {isHome ? parse(hero.content.rendered) : solutionExcerpt}
                     </div>
                     <Link href="/kontakt" title="kontakt z nami">
-                        <Button className="w-[120] mt-8 bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18]" size="lg">
+                        <Button className="w-[120] mt-8 my-2 lg:my-8 bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18]" size="lg">
                             Kontakt 
                             <Image className="ml-2 " src="/chat-white.svg" width={16} height={16} alt="chat icon" />    
                         </Button>
