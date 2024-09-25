@@ -24,9 +24,9 @@ import { getOfficeBySlug } from "@/lib/cpt-service";
 import { Office } from "@/lib/cpt-types";
 
 export const metadata: Metadata = {
-  title: "Evercast",
+  title: "Evercast - gwarantowane pasmo dla dowolnej transmisji LIVE, także w jakości HD. Internet mobilny, evercase.",
   description:
-    "Proponowane przez nas rozwiązania transmisyjne oraz komunikacyjne cechuje nowoczesna technologia, bezpieczeństwo oraz niezawodność",
+    "Dostarczamy gwarantowane pasmo satelitarne na żądanie, realizacja przekazów LIVE z wydarzeń muzycznych, sportowych, promocyjnych. Pasmo satelitarne dla nadawców TV i radiowych.",
   metadataBase: new URL("https://evercast.pl"),
 };
 
