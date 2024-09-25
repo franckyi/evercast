@@ -27,6 +27,8 @@ export default async function Page({ params }: { params: { id: number } }) {
         <Section>
             <HeroSection hero={hero} targetPage={targetPage} solution={solution} bg={solution.meta.bg_img} />
             <Container className="mt-20 flex flex-col gap-8 xl:gap-20">
+
+                {/* section 1 */}
                 <div className="section flex flex-wrap items-end relative">
                     <div className="lg:w-1/2">
                         <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section1_desc1}</p>
@@ -36,25 +38,55 @@ export default async function Page({ params }: { params: { id: number } }) {
                         <Image src={solution.meta.section1_img} width={400} height={415} alt={solution.title.rendered} />
                     </div>
                 </div>
+            </Container>
 
-                <div className="section flex lg:flex-nowrap lg:gap-20">
-                    <div className="w-full lg:w-1/2">
-                        <ImageCarousel wpGallery={wpGallery} />
-                    </div>
-                    <div className="text mt-8 lg:mt-0 flex flex-col gap-8 w-full lg:w-1/2">
-                        <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section2_desc1}</p>
-                        <p className="mt-8">{solution.meta.section2_desc2}</p>
+            <div className="mt-20 flex flex-col gap-8 xl:gap-20">
+
+                {/* section 2 */}
+                <div className="section relative h-[500px] lg:flex-nowrap lg:gap-20">
+                    
+                    <Container className="absolute z-0 left-0 right-0 mx-auto flex gap-8">
+                        <div className="lg:w-1/2">
+                            ..
+                        </div>
+                        <div className="text mt-8 lg:mt-0 flex flex-col gap-20 lg:w-1/2">
+                            <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section2_desc1}</p>
+                            <p className="mt-8">{solution.meta.section2_desc2}</p>
+                        </div>
+                    </Container>
+
+                    <div className="relative z-10 w-full flex gap-20 justify-end">
+                        <div className="lg:w-1/2 max-w-[710px]">
+                            <ImageCarousel wpGallery={wpGallery} />
+                        </div>
+                        <div className="lg:w-1/2"></div>
                     </div>
                 </div>
 
-                <div className="section flex lg:flex-nowrap gap-20">
-                    <div className="flex flex-col gap-8 w-full lg:w-1/2">
-                        <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section3_desc1}</p>
-                        <p className="">{solution.meta.section3_desc2}</p>
+                {/* section 3 */}
+                <div className="section relative h-[500px] lg:flex-nowrap lg:gap-20">
+                    
+                    <Container className="absolute z-0 left-0 right-0 mx-auto flex gap-8">
+                        <div className="text mt-8 lg:mt-0 flex flex-col gap-20 lg:w-1/2">
+                            <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section3_desc1}</p>
+                            <p>{solution.meta.section3_desc2}</p>
+                        </div>
+                        <div className="lg:w-1/2"></div>
+                    </Container>
+
+                    <div className="relative z-10 w-full flex gap-20 justify-start">
+                        <div className="lg:w-1/2"></div>
+                        {/* <div className="lg:w-1/2 max-w-[710px]"> */}
+                        <Image className="lg:w-1/2 max-w-[710px]" src={solution.meta.section3_img} width={620} height={643} alt={solution.title.rendered} />
+                        {/* </div> */}
                     </div>
-                    <Image className="w-full lg:w-1/2" src={solution.meta.section3_img} width={620} height={643} alt={solution.title.rendered} />
                 </div>
 
+            </div>
+
+            <Container className="mt-20 flex flex-col gap-8 xl:gap-20">
+
+                {/* section 4 */}
                 <div className="section flex lg:flex-nowrap gap-20">
                     <Image className="w-full lg:w-1/2" src={solution.meta.section4_img} width={620} height={643} alt={solution.title.rendered} />
                     <div className="flex flex-col gap-8 w-full lg:w-1/2">
@@ -65,12 +97,14 @@ export default async function Page({ params }: { params: { id: number } }) {
                     </div>
                 </div>
 
+                {/* wp content */}
                 <div className="section flex gap-20">
                     {solution.content.rendered}
                 </div>
 
             </Container>
 
+            {/* pros and use cases */}
             <div className="pros-use-cases-container w-full light:bg-gradient-to-b from-[#F9F9F9] to-[white] dark:bg-stone-800">
                 <Container className="flex px-16 gap-12">
                     <div className="flex flex-wrap md:flex-nowrap pt-8 max-w-5xl w-full gap-20">
