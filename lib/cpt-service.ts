@@ -1,7 +1,7 @@
 import { Hero, Block, Solution, Gallery, Office } from "./cpt-types";
 
 const baseUrl = process.env.WORDPRESS_URL;
-const duration = 3600 * 3;
+const duration = 1800; // 30 minutes
 const revalidation = { next: { revalidate: duration } };
 
 export const getHeroes = async (): Promise<Hero[]> => {
