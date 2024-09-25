@@ -105,7 +105,8 @@ export default async function Page({ params }: { params: { id: number } }) {
             </Container>
 
             {/* pros and use cases */}
-            <div className="pros-use-cases-container w-full light:bg-gradient-to-b from-[#F9F9F9] to-[white] dark:bg-stone-800">
+            {/* <div className="pros-use-cases-container w-full light:bg-gradient-to-b from-[#F9F9F9] to-[white] dark:bg-stone-800"> */}
+            <div className="pros-use-cases-container w-full bg-gradient-to-b from-[#F9F9F9] to-[white] dark:from-stone-800 dark:to-[black]">
                 <Container className="flex px-16 gap-12">
                     <div className="flex flex-wrap md:flex-nowrap pt-8 max-w-5xl w-full gap-20">
                         <div className="pros-use-cases w-full md:w-1/2">
