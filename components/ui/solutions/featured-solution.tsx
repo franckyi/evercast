@@ -12,8 +12,8 @@ type FeaturedSolutionProps = {
 
 export default function FeaturedSolution({featuredSolution}: FeaturedSolutionProps) {
     return(
-        <div className="w-full py-8 max-sm:min-h-[830px] h-[460px] relative mb-4 flex flex-col gap-4 dark:bg-black">
-            <div className="mx-auto max-w-5xl flex flex-wrap sm:flex-nowrap px-8 md:relative items-center z-10">
+        <div className="relative w-full py-8 max-sm:min-h-[830px] h-[460px] mb-4 flex flex-col gap-4 dark:bg-black">
+            <div className="md:relative mx-auto max-w-5xl flex flex-wrap sm:flex-nowrap px-8 items-center z-10">
                 <div className="flex flex-col gap-4">
                     <div className={`text-5xl text-muted-foreground font-bold ${fontSecondary.className}`}>
                         {featuredSolution.title.rendered}
@@ -39,7 +39,7 @@ export default function FeaturedSolution({featuredSolution}: FeaturedSolutionPro
                 </div>
             </div>
             <Image
-                className="featured-bg-image absolute inset-0 w-full h-full object-cover z-0 dark:opacity-10"
+                className="absolute z-0 featured-bg-image inset-0 w-full h-full object-cover opacity-10"
                 alt={featuredSolution.title.rendered}
                 src={featuredSolution.meta.bg_img}
                 width={640}

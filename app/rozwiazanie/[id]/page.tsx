@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { id: number } }) {
     
     return (
         <Section>
-            <HeroSection hero={hero} targetPage={targetPage} solution={solution} />
+            <HeroSection hero={hero} targetPage={targetPage} solution={solution} bg={solution.meta.bg_img} />
             <Container className="mt-20 flex flex-col gap-8 xl:gap-20">
                 <div className="section flex flex-wrap items-end relative">
                     <div className="lg:w-1/2">

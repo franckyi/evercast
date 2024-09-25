@@ -26,7 +26,7 @@ export default async function Home() {
 
   return (
     <Section>
-      <HeroSection hero={hero} targetPage={targetPage} />
+      <HeroSection hero={hero} targetPage={targetPage} bg={featuredSolution.meta.bg_img} />
       <FeaturedSolution featuredSolution={featuredSolution} />
       <RemainingSolutions solutions={homeSolutions} />
       {

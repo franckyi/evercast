@@ -174,3 +174,7 @@
 .section {
   flex-wrap: wrap;
 }
+
+.solution-hero-bg-image {
+  margin-top: 0 !important;
+}

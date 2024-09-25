@@ -1,6 +1,4 @@
-'use client'
 import { Hero, Solution } from "@/lib/cpt-types"
-import { usePathname } from "next/navigation"
 import parse from 'html-react-parser'
 import { fontSecondary } from "@/components/ui/fonts";
 import Image from "next/image";
@@ -10,50 +8,69 @@ import { Button } from "./button";
 type HeroSectionProps = {
     hero: Hero,
     solution?: Solution,
-    targetPage: string
+    targetPage: string,
+    bg: string
 }
 
-export default function HeroSection({hero, targetPage, solution}: HeroSectionProps) {
-    const pathname = usePathname()
-    const solutionExcerpt = parse(solution?.excerpt?.rendered ?? "") ?? "";    // const hero = props.hero
-
-    let bgImage = ""
-    if (pathname === '/') {
-        bgImage = "bg-hero-home bg-cover bg-no-repeat"
-    }
-
+export default function HeroSection({hero, targetPage, solution, bg}: HeroSectionProps) {
+    const solutionExcerpt = parse(solution?.excerpt?.rendered ?? "") ?? "";
+    const isHome = targetPage === "home";
+    const isSolution = targetPage === "solution";
+    const bgImage = isHome ? "bg-hero-home bg-cover bg-no-repeat" : "";
+    
     return (
-        <section className={`relative z-20 bg-black dark:bg-gray-900 ${bgImage} text-stone-400 ${targetPage === "solution" ? "lg:-mb-60" : ""}`}>
-            <div className="mx-auto max-w-5xl px-8 py-16 flex flex-wrap gap-8 lg:flex-nowrap justify-between">
+        <section
+            className={
+                `h-[540px] z-20 bg-black dark:bg-gray-900 ${bgImage} text-stone-400
+                ${isSolution ? "relative lg:-mb-60" : ""}`
+                }
+        >
+            
+            {isSolution &&
+                <Image
+                    src={bg}
+                    className="solution-hero-bg-image absolute max-h-[540px] opacity-10 w-full object-cover"
+                    width={1920}
+                    height={540}
+                    alt=""
+                />
+            }
+
+            <div
+                className={
+                    `mx-auto max-w-5xl px-8 py-16 flex flex-wrap gap-8 lg:flex-nowrap justify-between
+                    ${isSolution ?  "absolute top-0 left-0 right-0" : ""}`
+                    }
+            >
                 <div className="md:w-2/3">
                     <div className={`text-5xl text-white ${fontSecondary.className}`}>
-                        {targetPage === "home" ? hero.meta.subtitle : solution?.title?.rendered}
+                        {isHome ? hero.meta.subtitle : solution?.title?.rendered}
                     </div>
                     <div className={`mt-4 mb-8 lg:w-2/3 text-5xl tracking-wide text-accent dark:text-accent ${fontSecondary.className}`}>
-                        {targetPage === "home" ? hero.title.rendered : solution?.meta.short_desc}
+                        {isHome ? hero.title.rendered : solution?.meta.short_desc}
                     </div>
                     <div className="w-2/3 text-md">
-                        {targetPage === "home" ? parse(hero.content.rendered) : solutionExcerpt}
+                        {isHome ? parse(hero.content.rendered) : solutionExcerpt}
                     </div>
                     <Link href="/kontakt" title="kontakt z nami">
-                        <Button className="w-[120] mt-8 bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18]" size="lg">Kontakt 
+                        <Button className="w-[120] mt-8 bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18]" size="lg">
+                            Kontakt 
                             <Image className="ml-2 " src="/chat-white.svg" width={16} height={16} alt="chat icon" />    
                         </Button>
                     </Link>
                 </div>
 
-                {targetPage === "home" &&
-                <div className="md:w-1/3 px-4 py-8 flex flex-col gap-4 text-md border b-2 border-muted rounded-sm">
-                    <div className={`text-3xl text-white ${fontSecondary.className}`}>
-                        {hero.meta.announce_title}
+                {isHome &&
+                    <div className="md:w-1/3 px-4 py-8 flex flex-col gap-4 text-md border b-2 border-muted rounded-sm">
+                        <div className={`text-3xl text-white ${fontSecondary.className}`}>
+                            {hero.meta.announce_title}
+                        </div>
+                        <p className="pr-4">
+                            {hero.meta.announce_desc}
+                            <Image className="float-right" src="/arrow-right-red.svg" width={16} height={16} alt="arrow right icon" />
+                        </p>
                     </div>
-                    <p className="pr-4">
-                        {hero.meta.announce_desc}
-                        <Image className="float-right" src="/arrow-right-red.svg" width={16} height={16} alt="arrow right icon" />
-                    </p>
-                </div>
                 }
-
             </div>
         </section>
     )
