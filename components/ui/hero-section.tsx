@@ -22,7 +22,7 @@ export default function HeroSection({hero, targetPage, solution, bg}: HeroSectio
         <section
             className={
                 `h-[540px] z-20 bg-black dark:bg-gray-900 ${bgImage} text-stone-400
-                ${isSolution ? "relative lg:-mb-60" : ""}`
+                ${isSolution ? "relative lg:-mb-40" : ""}`
                 }
         >
             
@@ -55,7 +55,7 @@ export default function HeroSection({hero, targetPage, solution, bg}: HeroSectio
                     <Link href="/kontakt" title="kontakt z nami">
                         <Button className="w-[120] mt-8 my-2 lg:my-8 bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18]" size="lg">
                             Kontakt 
-                            <Image className="ml-2 " src="/chat-white.svg" width={16} height={16} alt="chat icon" />    
+                            <Image className="ml-2" src="/chat-white.svg" width={16} height={16} alt="chat icon" />    
                         </Button>
                     </Link>
                 </div>

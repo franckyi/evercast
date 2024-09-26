@@ -35,7 +35,7 @@ export default async function Page({ params }: { params: { id: number } }) {
                         <p className={`text-3xl text-muted-darker ${fontSecondary.className}`}>{solution.meta.section1_desc2}</p>
                     </div>
                     <div className="relative z-40">
-                        <Image src={solution.meta.section1_img} width={400} height={415} alt={solution.title.rendered} />
+                        <Image className="lg:relative lg:-top-20" src={solution.meta.section1_img} width={400} height={415} alt={solution.title.rendered} />
                     </div>
                 </div>
             </Container>
