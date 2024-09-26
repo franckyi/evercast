@@ -19,6 +19,9 @@
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
     
+    --tertiary: 39 100% 50%;
+    --tertiary-foreground: 0 0% 9%;
+    
     --muted: 0 0 57%;
     --muted-darker: 0 0 36%;
     --muted-foreground: 0 0% 17%;
@@ -30,7 +33,7 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 89.8%;
+    --border: 0 0% 85%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
 
@@ -186,4 +189,13 @@
 .announce-icon {
   margin-bottom: 0 !important;
   transition: all 0.3s ease-in-out;
+}
+
+.phone-number {
+  text-decoration: none !important;
+  color: rgb(28 25 23 / var(--tw-text-opacity)) !important;
+}
+
+#regulamin, #marketing {
+  accent-color: red;;
 }

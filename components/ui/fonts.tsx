@@ -7,5 +7,5 @@ export const fontPrimary = Barlow({
 
 export const fontSecondary = Barlow_Condensed({
     subsets: ["latin-ext"],
-    weight: ["600"],
+    weight: ["400", "600"],
 });

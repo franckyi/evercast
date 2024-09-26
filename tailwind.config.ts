@@ -23,7 +23,7 @@ const config = {
       //   sans: ["var(--font-primary)", ...fontFamily.sans],
       // },
       backgroundImage: {
-        hero: "url('/.webp')",
+        "contact": "url('/bg_contact.webp')",
         "hero-home": "url('/hero_home_bg.webp')",
       },
       colors: {
@@ -40,12 +40,17 @@ const config = {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        tertiary: {
+          DEFAULT: "hsl(var(--tertiary))",
+          foreground: "hsl(var(--tertiary-foreground))",
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
+          darker: "hsl(var(--muted-darker))",
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
