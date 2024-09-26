@@ -16,6 +16,9 @@ const accept = {
   marketing: "Wyrażam zgodę na przesyłanie informacji handlowych za pomocą środków komunikacji elektronicznej w rozumieniu ustawy z dnia 18 lipca 2002 roku o świadczenie usług drogą elektroniczną rozwiń(Dz.U.2017.1219 t.j.) na podany adres e-mail na temat usług oferowanych przez Polnetkom Sp. z o.o. przy ul. Północnej 15-19 bud. 2.1, z siedzibą we Wrocławiu. Zgoda jest dobrowolna i może być w każdej chwili wycofana, klikając w odpowiedni link na końcu wiadomości e-mail. Wycofanie zgody nie wpływa na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przez jej wycofaniem."
 }
 
+const btnActiveClasses = "bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18]";
+const btnInactiveClasses = "bg-primary-foreground";
+
 export default function ContactForm() {
   const [formData, setFormData] = useState(initialFormData);
   const [submitted, setSubmitted] = useState(false);
@@ -99,26 +102,20 @@ export default function ContactForm() {
 
         <div className="mt-4 flex gap-4 items-start">
           <input type="checkbox" name="regulamin" id="regulamin" required />
-          <p className="text-primary-foreground text-xs font-medium">{accept.regulamin}</p>
+          <p className="regulamin text-primary-foreground font-medium">{accept.regulamin}</p>
         </div>
         <div className="mt-4 flex gap-4 items-start">
           <input type="checkbox" name="marketing" id="marketing" required />
-          <p className="text-primary-foreground text-xs font-medium">{accept.marketing}</p>
+          <p className="marketing text-primary-foreground font-medium">{accept.marketing}</p>
         </div>
-
-        <input
-          type="submit"
-          className="mt-4 py-2 px-4 rounded-sm hover:bg-green-800 hover:cursor-pointer bg-green-700 text-white"
-        />
 
         <Button
           type="submit"
-          className="w-[200] bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18]"
+          className={`mt-8 w-fit py-6 text-xl ${btnActiveClasses} ${btnInactiveClasses}`}
           size="lg"
-        >
-          <Image className="ml-2" src="/send.svg" width={40} height={40} alt="send icon" />
+        >Wyślij
+          <Image className="ml-4" src="/send.svg" width={20} height={20} alt="send icon" />
         </Button>
-        {/* bg-primary-foreground */}
 
       </form>
       {submitted && <p>Wiadomość został wysłany</p>}

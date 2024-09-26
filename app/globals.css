@@ -197,5 +197,10 @@
 }
 
 #regulamin, #marketing {
-  accent-color: red;;
+  accent-color: #ddd;
+}
+
+.regulamin, .marketing {
+  font-size: 10px;
+  line-height: 1.2;
 }
