@@ -29,7 +29,7 @@ export default function HeroSection({hero, targetPage, solution, bg}: HeroSectio
             {isSolution &&
                 <Image
                     src={bg}
-                    className="solution-hero-bg-image absolute max-h-[540px] opacity-10 w-full h-full object-cover"
+                    className="solution-hero-bg-image absolute max-h-[540px] opacity-15 w-full h-full object-cover"
                     width={1920}
                     height={540}
                     alt=""
