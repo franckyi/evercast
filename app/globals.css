@@ -178,3 +178,12 @@
 .solution-hero-bg-image {
   margin-top: 0 !important;
 }
+
+.announce-container:hover .announce-icon {
+  transform: translateX(5px);
+}
+
+.announce-icon {
+  margin-bottom: 0 !important;
+  transition: all 0.3s ease-in-out;
+}
