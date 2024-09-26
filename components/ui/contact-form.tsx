@@ -102,11 +102,11 @@ export default function ContactForm() {
 
         <div className="mt-4 flex gap-4 items-start">
           <input type="checkbox" name="regulamin" id="regulamin" required />
-          <p className="regulamin text-primary-foreground font-medium">{accept.regulamin}</p>
+          <p className="regulamin-text text-primary-foreground font-medium">{accept.regulamin}</p>
         </div>
         <div className="mt-4 flex gap-4 items-start">
           <input type="checkbox" name="marketing" id="marketing" required />
-          <p className="marketing text-primary-foreground font-medium">{accept.marketing}</p>
+          <p className="marketing-text text-primary-foreground font-medium">{accept.marketing}</p>
         </div>
 
         <Button

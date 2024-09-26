@@ -194,13 +194,15 @@
 .phone-number {
   text-decoration: none !important;
   color: rgb(28 25 23 / var(--tw-text-opacity)) !important;
+  font-weight: bold;
 }
 
 #regulamin, #marketing {
   accent-color: #ddd;
 }
 
-.regulamin, .marketing {
+.regulamin-text,
+.marketing-text {
   font-size: 10px;
   line-height: 1.2;
 }
