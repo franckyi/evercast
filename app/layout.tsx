@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import { useTheme } from 'next-themes';
 import { Analytics } from "@vercel/analytics/react";
 
 import { fontPrimary, fontSecondary } from "@/components/ui/fonts";
@@ -29,8 +28,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://evercast.pl"),
 };
 
-// Revalidate content every hour
-export const revalidate = 3600;
+// Revalidate content every 30 mins
+export const revalidate = 1800;
 
 export default async function RootLayout({
   children,
@@ -48,7 +47,7 @@ export default async function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
