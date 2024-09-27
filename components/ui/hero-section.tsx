@@ -21,7 +21,7 @@ export default function HeroSection({hero, targetPage, solution, bg}: HeroSectio
     return (
         <section
             className={
-                `h-[540px] z-20 bg-black dark:bg-gray-900 ${bgImage} text-stone-400
+                `min-h-[540px] z-20 bg-black dark:bg-gray-900 ${bgImage} text-stone-400
                 ${isSolution ? "relative lg:-mb-40" : ""}`
                 }
         >

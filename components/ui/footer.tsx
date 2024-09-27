@@ -41,7 +41,7 @@ export default function Footer ({office, solutions}: FooterProps) {
                 <ul className="sm:max-h-[140px] flex flex-wrap flex-col gap-y-2 gap-x-8">
                   {solutions.map((solution: Solution) => (
                       <li key={solution.id}>
-                        <Link href={`/rozwiazanie/${solution.id}`}>{solution.title.rendered}</Link>
+                        <Link href={`/rozwiazanie/${solution.slug}`}>{solution.title.rendered}</Link>
                       </li>
                     ))
                   }

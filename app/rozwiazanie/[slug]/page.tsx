@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getBlocks, getGalleries, getHeroes, getSolutionById } from "@/lib/cpt-service";
+import { getBlocks, getGalleries, getHeroes, getSolutionBySlug } from "@/lib/cpt-service";
 import splitSentences from "@/lib/split-sentences";
 import { Section } from "@/components/craft";
 import HeroSection from "@/components/ui/hero-section";
@@ -9,10 +9,10 @@ import ImageCarousel from "@/components/ui/image-carousel";
 import { fontSecondary } from "@/components/ui/fonts";
 import WpBlock from "@/components/ui/wp-block/wp-block";
 
-export default async function Page({ params }: { params: { id: number } }) {
+export default async function Page({ params }: { params: { slug: string } }) {
     const heroes: Hero[] = await getHeroes();
     const hero = heroes.filter(hero => hero.status === "publish")[0];
-    const solution = await getSolutionById(params.id);
+    const solution = await getSolutionBySlug(params.slug);
     const galleries = await getGalleries();
     const gallery = galleries.filter(gallery => gallery.meta.link_id === solution.meta.section2_gallery_id)[0];
     const wpGallery = gallery.content.rendered;

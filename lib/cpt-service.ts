@@ -23,6 +23,13 @@ export const getSolutionById = async (id: number): Promise<Solution> => {
     return solution;
 }
 
+export const getSolutionBySlug = async (slug: string): Promise<Solution> => {
+    const res = await fetch(baseUrl + "/wp-json/wp/v2/solution", revalidation);
+    const solutions: Solution[] = await res.json();
+    const solution = solutions.filter(solution => solution.slug === slug)[0]
+    return solution;
+}
+
 export const getBlocks = async (targetPage: string): Promise<Block[]> => {
     const res = await fetch(baseUrl + "/wp-json/wp/v2/section", revalidation);
     let blocks: Block[] = await res.json();
