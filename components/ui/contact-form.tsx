@@ -58,7 +58,7 @@ export default function ContactForm() {
   };
 
   const handleCheckbox = ( e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) => {
-    const { name, value } = e.target;
+    const { name } = e.target;
 
     if (name === "regulamin") {
       setBoxRegulamin(checked => !checked);
