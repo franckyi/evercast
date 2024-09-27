@@ -141,6 +141,11 @@
  * Custom Styles
 */
 
+h2 {
+  font-weight: bold !important;
+  font-size: clamp(2rem, 3vw, 3rem) !important;
+}
+
 .gallery {
   width: 100%;
 }
@@ -211,5 +216,13 @@
   .boxed-content {
     margin: 0 auto;
     min-width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footer-upper-part,
+  .footer-middle-part,
+  .footer-bottom-part {
+    padding: 2rem 0 !important;
   }
 }

@@ -15,7 +15,7 @@ export default function WpBlockButton({block}: {block: Block}) {
 
     if (pathname === rootPath) {
         targetHref = ofertaPath
-        iconFileName = "arrow-right-black.svg"
+        iconFileName = "arrow-right-red.svg"
     }
     
     else if (pathname.includes("/rozwiazanie/")) {
@@ -25,7 +25,7 @@ export default function WpBlockButton({block}: {block: Block}) {
 
     return(
         <Link href={targetHref} className="mt-8 md:mt-0">
-            <Button className="bg-transparent hover:bg-stone-900 dark:hover:bg-white dark:text-white dark:hover:text-black" size="lg" variant="outline">
+            <Button className="font-bold bg-transparent hover:bg-stone-900 dark:hover:bg-white dark:text-white dark:hover:text-black" size="lg" variant="outline">
                 {block.meta.button_text}
                 <Image className="ml-2" src={`/${iconFileName}`} width={16} height={16} alt="" />
             </Button>

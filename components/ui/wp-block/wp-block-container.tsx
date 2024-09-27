@@ -19,21 +19,34 @@ export default function WpBlockContainer({block, gallery}: {block: Block, galler
         ctaMoreSolutionsClasses = "py-8"
     }
 
-    let ctaBlockBgColor = pathname === "/" ? "bg-transparent" : "bg-gradient-to-b from-[#F9F9F9] to-[#EDEDED] dark:from-[#333] dark:to-[#222]"
+    let ctaContactClasses = ""
+    if (block.meta.block_name === "cta_contact") {
+        ctaContactClasses = "px-12"
+    }
+
+    const ctaBlockBgColor = pathname === "/" ? "bg-transparent" : "bg-gradient-to-b from-[#F9F9F9] to-[#EDEDED] dark:from-[#333] dark:to-[#222]"
+
 
     return (
-        <div className={`w-full flex ${partnersClasses} ${ctaMoreSolutionsClasses} dark:bg-gradient-to-b dark:from-black dark:to-bg-stone-950`}>
-            <div className={`w-full ${ctaBlockBgColor} p-8 mx-auto max-w-5xl flex flex-wrap lg:flex-nowrap justify-between items-center lg:gap-28`}>
+        <div className={`w-full p-8 flex ${partnersClasses} ${ctaMoreSolutionsClasses} dark:bg-gradient-to-b dark:from-black dark:to-bg-stone-950`}>
+            <div className={`w-full py-8 ${ctaContactClasses} ${ctaBlockBgColor} mx-auto max-w-5xl flex flex-wrap lg:flex-nowrap justify-between items-center lg:gap-28`}>
                 
-                <div className={`text-2xl max-w-[400] text-muted-foreground font-bold ${fontSecondary.className}`}>
+                <div
+                    className={`text-3xl
+                        ${block.meta.block_name === "partners" ? "leading-6" : ""}
+                        ${block.meta.block_name === "cta_more_solutions" ? "lg:min-w-[480px] text-3xl" : ""}
+                        max-w-[400] text-muted-foreground font-bold
+                        ${fontSecondary.className}`
+                    }
+                >
                     {block.title.rendered}
                 </div>
                 
                 {block.meta.button_text !== "" &&
-                    <div className="w-1/2 flex flex-col gap-4">
+                    <div className="mt-8 md:mt-0 flex flex-col md:gap-4">
 
                         {block.meta.button_title !== "" &&
-                            <p className={`text-accent text-2xl ${fontSecondary.className}`}>{block.meta.button_title}</p>
+                            <p className={`text-accent text-3xl font-bold ${fontSecondary.className}`}>{block.meta.button_title}</p>
                         }
 
                         <WpBlockButton block={block} />

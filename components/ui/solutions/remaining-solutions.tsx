@@ -15,7 +15,7 @@ export default function RemainingSolutions(props: FeaturedSolutionProps) {
     const orderedSolutions = remainingSolutions.sort((a, b) => a.meta.display_order - b.meta.display_order)
 
     return(
-        <div className="max-w-5xl mx-auto mb-24 flex flex-wrap justify-between gap-4">
+        <div className="max-w-5xl mx-auto flex flex-wrap justify-between gap-4">
             {orderedSolutions.map((solution: Solution) => {
                 return(
                     <div key={solution.id} className="solution-container w-full md:w-[calc(50%-.5rem)] relative min-h-[460px] flex dark:bg-black">
@@ -28,7 +28,7 @@ export default function RemainingSolutions(props: FeaturedSolutionProps) {
                                     {parse(solution.excerpt.rendered)}
                                 </div>
                                 <Link href={`/rozwiazanie/${solution.id}`} className="mt-auto" title={solution.title.rendered}>
-                                    <Button className="w-[200] bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18]" size="lg">Dowiedź się więcej
+                                    <Button className="w-[200] bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18] font-bold" size="lg">Dowiedź się więcej
                                         <Image className="ml-2" src="/arrow-right-white.svg" width={16} height={16} alt="arrow right icon" />
                                     </Button>
                                 </Link>

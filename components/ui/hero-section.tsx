@@ -43,17 +43,17 @@ export default function HeroSection({hero, targetPage, solution, bg}: HeroSectio
                     }
             >
                 <div className="md:w-2/3">
-                    <div className={`text-5xl text-white ${fontSecondary.className}`}>
+                    <div className={`text-5xl text-white font-bold ${fontSecondary.className}`}>
                         {isHome ? hero.meta.subtitle : solution?.title?.rendered}
                     </div>
-                    <div className={`mt-4 mb-8 lg:w-2/3 text-5xl tracking-wide text-accent dark:text-accent ${fontSecondary.className}`}>
+                    <div className={`mt-4 mb-8 lg:w-2/3 text-5xl tracking-wide text-accent dark:text-accent font-bold ${fontSecondary.className}`}>
                         {isHome ? hero.title.rendered : solution?.meta.short_desc}
                     </div>
                     <div className="w-2/3 text-md">
                         {isHome ? parse(hero.content.rendered) : solutionExcerpt}
                     </div>
                     <Link href="/kontakt" title="kontakt z nami">
-                        <Button className="w-[120] mt-8 my-2 lg:my-8 bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18]" size="lg">
+                        <Button className="w-[120] mt-8 my-2 lg:my-8 bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18] font-bold" size="lg">
                             Kontakt 
                             <Image className="ml-2" src="/chat-white.svg" width={16} height={16} alt="chat icon" />    
                         </Button>

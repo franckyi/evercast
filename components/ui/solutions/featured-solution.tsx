@@ -21,12 +21,12 @@ export default function FeaturedSolution({featuredSolution}: FeaturedSolutionPro
                     <div className={`text-5xl text-accent font-bold ${fontSecondary.className}`}>
                         {parse(featuredSolution.content.rendered)}
                     </div>
-                    <div className={`text-5xl text-accent ${fontSecondary.className}`}>
+                    <div className={`text-5xl text-accent font-bold ${fontSecondary.className}`}>
                         {featuredSolution.meta.short_desc}
                     </div>
                     {parse(featuredSolution.excerpt.rendered)}
                     <Link href={`/rozwiazanie/${featuredSolution.id}`} className="mt-4" title={featuredSolution.title.rendered}>
-                        <Button className="w-[200] bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18]" size="lg">Dowiedź się więcej
+                        <Button className="w-[200] bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18] font-bold" size="lg">Dowiedź się więcej
                             <Image className="ml-2" src="/arrow-right-white.svg" width={16} height={16} alt="arrow right icon" />
                         </Button>
                     </Link>

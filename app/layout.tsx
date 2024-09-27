@@ -7,7 +7,7 @@ import { fontPrimary } from "@/components/ui/fonts";
 import { Main } from "@/components/craft";
 
 import { cn } from "@/lib/utils";
-import { getOfficeBySlug } from "@/lib/cpt-service";
+import { getOfficeBySlug, getSolutions } from "@/lib/cpt-service";
 import Nav from "@/components/ui/nav";
 import Footer from "@/components/ui/footer";
 
@@ -28,6 +28,8 @@ export default async function RootLayout({
 }) {
 
   const office = await getOfficeBySlug('polnocna')
+  const solutions = await getSolutions();
+  const orderedSolutions = solutions.sort((a, b) => a.meta.display_order - b.meta.display_order)
 
   return (
     <html lang="pl" suppressHydrationWarning>
@@ -43,7 +45,7 @@ export default async function RootLayout({
         >
           <Nav />
           <Main>{children}</Main>
-          <Footer office={office} />
+          <Footer office={office} solutions={orderedSolutions} />
         </ThemeProvider>
         <Analytics />
       </body>

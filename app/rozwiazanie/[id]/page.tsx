@@ -30,7 +30,7 @@ export default async function Page({ params }: { params: { id: number } }) {
 
                 {/* section 1 */}
                 <div className="section flex flex-wrap items-end relative">
-                    <div className="lg:w-1/2">
+                    <div className="lg:w-1/2 font-bold">
                         <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section1_desc1}</p>
                         <p className={`text-3xl text-muted-darker ${fontSecondary.className}`}>{solution.meta.section1_desc2}</p>
                     </div>
@@ -48,7 +48,7 @@ export default async function Page({ params }: { params: { id: number } }) {
                     <Container className="lg:absolute lg:z-0 lg:left-0 lg:right-0 mx-auto flex gap-8">
                         <div className="lg:w-1/2"></div>
                         <div className="text mt-8 lg:mt-0 flex flex-col gap-20 lg:w-1/2">
-                            <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section2_desc1}</p>
+                            <p className={`text-3xl text-primary font-bold ${fontSecondary.className}`}>{solution.meta.section2_desc1}</p>
                             <p className="mt-8">{solution.meta.section2_desc2}</p>
                         </div>
                     </Container>
@@ -66,7 +66,7 @@ export default async function Page({ params }: { params: { id: number } }) {
                     
                     <Container className="lg:absolute lg:z-0 lg:left-0 lg:right-0 mx-auto flex gap-8">
                         <div className="text mt-8 lg:mt-0 flex flex-col gap-20 lg:w-1/2">
-                            <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section3_desc1}</p>
+                            <p className={`text-3xl text-primary font-bold ${fontSecondary.className}`}>{solution.meta.section3_desc1}</p>
                             <p>{solution.meta.section3_desc2}</p>
                         </div>
                         <div className="lg:w-1/2"></div>
@@ -86,7 +86,7 @@ export default async function Page({ params }: { params: { id: number } }) {
                 <div className="section flex lg:flex-nowrap gap-20">
                     <Image className="mx-auto lg:w-full lg:w-1/2" src={solution.meta.section4_img} width={620} height={643} alt={solution.title.rendered} />
                     <div className="flex flex-col gap-8 w-full lg:w-1/2">
-                        <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section4_desc1}</p>
+                        <p className={`text-3xl text-primary font-bold ${fontSecondary.className}`}>{solution.meta.section4_desc1}</p>
                         {solution.meta.section4_desc2 !== "" &&
                             <p className={`mt-8 text-3xl text-muted-darker ${fontSecondary.className}`}>{solution.meta.section4_desc2}</p>
                         }
@@ -101,8 +101,8 @@ export default async function Page({ params }: { params: { id: number } }) {
             </Container>
 
             {/* pros and use cases */}
-            <div className="pros-use-cases-container w-full bg-gradient-to-b from-[#F9F9F9] to-[white] dark:from-stone-800 dark:to-[black]">
-                <Container className="flex px-16 gap-12">
+            <div className="pros-use-cases-container w-full font-bold bg-gradient-to-b from-[#F9F9F9] to-[white] dark:from-stone-800 dark:to-[black]">
+                <Container className="flex lg:px-0 gap-12">
                     <div className="flex flex-wrap md:flex-nowrap pt-8 max-w-5xl w-full gap-20">
                         <div className="pros-use-cases w-full md:w-1/2">
                             <h2 className={`text-accent font-bold ${fontSecondary.className}`}>Zalety</h2>
