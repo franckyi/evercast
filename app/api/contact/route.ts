@@ -18,7 +18,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     from: process.env.FROM,
     to: process.env.TO,
     subject: `Formularz na stronie: Wiadomość od "${name}"`,
-    html: `<p>${message}</p><p>${name} | ${email} | ${phone}</p>`,
+    html: `<p>${message}</p><div>${name} <br />email: ${email} <br />tel: ${phone}</div>`,
   };
 
   try {
