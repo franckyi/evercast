@@ -3,12 +3,22 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image"
 import { Button } from "./button";
 
-const initialFormData = {
+type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  regulamin: boolean;
+  marketing: boolean;
+};
+
+const initialFormData: FormData = {
   name: "",
-  phone: "",
   email: "",
-  subject: "",
+  phone: "",
   message: "",
+  regulamin: false,
+  marketing: false,
 };
 
 const accept = {
@@ -20,17 +30,38 @@ const btnActiveClasses = "bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:fro
 const btnInactiveClasses = "bg-primary-foreground";
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState(initialFormData);
+  const [formData, setFormData] = useState<FormData>(initialFormData);
   const [submitted, setSubmitted] = useState(false);
+  const [isValidForm, setIsValidForm] = useState(false);
+
+  function checkForm() {
+    if (formData.name &&
+      formData.email &&
+      formData.phone &&
+      formData.message &&
+      formData.regulamin &&
+      formData.marketing)
+    {
+      setIsValidForm(true);
+    }
+    else
+    {
+      setIsValidForm(false);
+    }
+  }
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+
     setFormData({
       ...formData,
       [name]: value,
     });
+
+    checkForm();
+
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -38,7 +69,8 @@ export default function ContactForm() {
     console.log("Sending...");
     console.log(formData);
 
-    fetch("/api/contact", {
+    if (isValidForm) {
+      fetch("/api/contact", {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -53,6 +85,8 @@ export default function ContactForm() {
         setFormData(initialFormData);
       }
     });
+  }
+
   };
 
   return (
@@ -83,7 +117,7 @@ export default function ContactForm() {
             type="phone"
             id="phone"
             name="phone"
-            placeholder="Numer telefon"
+            placeholder="Numer telefonu"
             value={formData.phone}
             onChange={handleChange}
             className="w-1/2 mb-4 py-2 px-4 rounded-sm bg-white placeholder:text-muted-darker border border-border"
@@ -101,18 +135,20 @@ export default function ContactForm() {
         ></textarea>
 
         <div className="mt-4 flex gap-4 items-start">
-          <input type="checkbox" name="regulamin" id="regulamin" required />
+          <input type="checkbox" name="regulamin" id="regulamin" onChange={handleChange} checked={formData.regulamin} required />
           <p className="regulamin-text text-primary-foreground font-medium">{accept.regulamin}</p>
         </div>
+
         <div className="mt-4 flex gap-4 items-start">
-          <input type="checkbox" name="marketing" id="marketing" required />
+          <input type="checkbox" name="marketing" id="marketing" onChange={handleChange} checked={formData.marketing} required />
           <p className="marketing-text text-primary-foreground font-medium">{accept.marketing}</p>
         </div>
 
         <Button
           type="submit"
-          className={`mt-8 w-fit py-6 text-xl ${btnActiveClasses} ${btnInactiveClasses}`}
+          className={`mt-8 w-fit py-6 text-xl ${isValidForm ? btnActiveClasses : btnInactiveClasses}`}
           size="lg"
+          disabled={!isValidForm}
         >Wyślij
           <Image className="ml-4" src="/send.svg" width={20} height={20} alt="send icon" />
         </Button>
