@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { getBlocks, getGalleries, getHeroes, getSolutionBySlug } from "@/lib/cpt-service";
-import splitSentences from "@/lib/split-sentences";
+import { getBlocks, getGalleryBySolution, getHeroes, getSolutionBySlug } from "@/lib/cpt-service";
 import { Section } from "@/components/craft";
 import HeroSection from "@/components/ui/hero-section";
 import { Block, Hero } from "@/lib/cpt-types";
@@ -16,34 +15,29 @@ export default async function Page({ params }: { params: { slug: string } }) {
     const heroes: Hero[] = await getHeroes();
     const hero = heroes[0];
     const solution = await getSolutionBySlug(params.slug);
-
-    // const galleries = await getGalleries();
-    // const gallery = galleries.filter(gallery => gallery.meta.link_id === solution.meta.section2_gallery_id)[0];
-    // const wpGallery = gallery.content.rendered;
-    // const wpBlocks: Block[] = await getBlocks(targetPage)
+    const gallery = await getGalleryBySolution(solution.meta.section2_gallery_id)
+    const wpGallery = gallery.content.rendered;
+    const wpBlocks: Block[] = await getBlocks(targetPage)
     
-    return (
-        // <h1>test</h1>
-        
-            solution.meta &&
+    return ( 
+            solution !== undefined && solution !== null &&
             <Section>
-            {
-                solution.meta && 
+            { 
                 <HeroSection hero={hero} targetPage={targetPage} solution={solution} bg={solution.meta.bg_img} />
             }
-            <Container className="mt-20 flex flex-col gap-8 xl:gap-20">
-                {
-                    solution.meta && <div className="section flex flex-wrap items-end relative">
-                        <div className="lg:w-1/2 font-bold">
-                            <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section1_desc1}</p>
-                            <p className={`text-3xl text-muted-darker ${fontSecondary.className}`}>{solution.meta.section1_desc2}</p>
+            {
+                <Container className="mt-20 flex flex-col gap-8 xl:gap-20">
+                        <div className="section flex flex-wrap items-end relative">
+                            <div className="lg:w-1/2 font-bold">
+                                <p className={`text-3xl text-primary ${fontSecondary.className}`}>{solution.meta.section1_desc1}</p>
+                                <p className={`text-3xl text-muted-darker ${fontSecondary.className}`}>{solution.meta.section1_desc2}</p>
+                            </div>
+                            <div className="relative z-40">
+                                <Image className="lg:relative lg:-top-20" src={solution.meta.section1_img} width={400} height={415} alt={solution.title.rendered} />
+                            </div>
                         </div>
-                        <div className="relative z-40">
-                            <Image className="lg:relative lg:-top-20" src={solution.meta.section1_img} width={400} height={415} alt={solution.title.rendered} />
-                        </div>
-                    </div>
-                }
-            </Container>
+                </Container>
+            }
 
             <div className="mt-20 flex flex-col gap-8 xl:gap-20">
 
@@ -59,14 +53,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
                         </Container>
                     }
 
-                    {/* {
+                    {
                         wpGallery && <div className="lg:relative lg:z-0 w-full lg:flex lg:gap-20 justify-end">
                             <div className="lg:w-1/2 max-w-[710px]">
                                 <ImageCarousel wpGallery={wpGallery} />
                             </div>
                             <div className="lg:w-1/2"></div>
                         </div>
-                    } */}
+                    }
                 </div>
 
                 {
@@ -131,13 +125,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
             {solution.content.rendered}
 
-            {/* {
+            {
                 wpBlocks.map((block, index) => (
                 <WpBlock block={block} key={index} />
                 ))
-            } */}
-
-
+            }
         </Section>
     );
 }

@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import '@/public/css/wp-styles.min.css';
-import "./globals.css";
+import "@/app/globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import { fontPrimary } from "@/components/ui/fonts";
 import { Main } from "@/components/craft";
-
 import { cn } from "@/lib/utils";
 import { getOfficeBySlug, getSolutions } from "@/lib/cpt-service";
 import Nav from "@/components/ui/nav";
