@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import '@/public/css/wp-styles.min.css';
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import { fontPrimary } from "@/components/ui/fonts";
-
 import { Main } from "@/components/craft";
 
 import { cn } from "@/lib/utils";
