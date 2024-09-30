@@ -6,7 +6,8 @@ const revalidation = { next: { revalidate: duration } };
 
 export const getHeroes = async (): Promise<Hero[]> => {
     const res = await fetch(baseUrl + "/wp-json/wp/v2/hero", revalidation);
-    const heroes: Hero[] = await res.json();
+    let heroes: Hero[] = await res.json();
+    heroes = heroes.filter(hero => hero.status === "publish");
     return heroes;
 }
 

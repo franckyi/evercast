@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://evercast.pl"),
 };
 
-// Revalidate content every 30 mins
-export const revalidate = 1800;
+// Revalidate content every 10 mins
+export const revalidate = 600;
 
 export default async function RootLayout({
   children,
