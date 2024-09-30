@@ -1,6 +1,5 @@
 'use client';
 import { ThemeToggle } from "@/components/theme/theme-toggle";
-import { contentMenu } from "@/menu.config";
 import { Section, Container } from "@/components/craft";
 import LogoWhite from "@/public/logo_white.svg";
 import Image from "next/image";
@@ -67,7 +66,7 @@ export default function Footer ({office, solutions}: FooterProps) {
           <Container noBorderTop className="footer-bottom-part not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
             <div className="flex flex-wrap pt-8 max-w-5xl w-full gap-16 justify-between border-t border-muted-foreground">
               <ThemeToggle />
-              <p className="text-muted-foreground">
+              <p className="text-gray">
                 © Evercast 2013 - 2024 Wszsytkie prawa zastrzeżone. Designed by <a href="https://01unit.com">01UNIT</a>
               </p>
               <Image

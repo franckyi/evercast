@@ -99,10 +99,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 }
 
                 {
-                    solution.content.rendered &&
-                    <div className="section flex gap-20">
-                        {solution.content.rendered}
-                    </div>
+                    solution.content.rendered && solution.content.rendered
                 }
 
             </Container>

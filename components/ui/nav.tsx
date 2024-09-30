@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { mainMenu, contentMenu } from "@/menu.config";
+import { mainMenu } from "@/menu.config";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/nav/mobile-nav";
 import LogoBlack from "@/public/logo_black.svg";

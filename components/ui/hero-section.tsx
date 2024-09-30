@@ -49,9 +49,9 @@ export default function HeroSection({hero, targetPage, solution, bg}: HeroSectio
                     <div className={`mt-4 mb-8 lg:w-2/3 text-5xl tracking-wide text-accent dark:text-accent font-bold ${fontSecondary.className}`}>
                         {isHome ? hero.title.rendered : solution?.meta.short_desc}
                     </div>
-                    <div className="w-2/3 text-md">
+                    <article className="w-2/3 text-md">
                         {isHome ? parse(hero.content.rendered) : solutionExcerpt}
-                    </div>
+                    </article>
                     <Link href="/kontakt" title="kontakt z nami">
                         <Button className="w-[120] mt-8 my-2 lg:my-8 bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18] font-bold" size="lg">
                             Kontakt 

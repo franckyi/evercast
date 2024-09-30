@@ -18,9 +18,9 @@ export default function FeaturedSolution({featuredSolution}: FeaturedSolutionPro
                     <div className={`text-5xl text-muted-foreground font-bold ${fontSecondary.className}`}>
                         {featuredSolution.title.rendered}
                     </div>
-                    <div className={`text-5xl text-accent font-bold ${fontSecondary.className}`}>
+                    <article className={`text-5xl text-accent font-bold ${fontSecondary.className}`}>
                         {parse(featuredSolution.content.rendered)}
-                    </div>
+                    </article>
                     <div className={`text-5xl text-accent font-bold ${fontSecondary.className}`}>
                         {featuredSolution.meta.short_desc}
                     </div>
