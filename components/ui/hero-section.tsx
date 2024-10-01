@@ -21,7 +21,7 @@ export default function HeroSection({hero, targetPage, solution, bg}: HeroSectio
     return (
         <section
             className={
-                `min-h-[540px] z-20 bg-black dark:bg-gray-900 ${bgImage} text-stone-400
+                `min-h-[540px] z-20 bg-[#222] dark:bg-[#222] ${bgImage} text-stone-400
                 ${isSolution ? "relative lg:-mb-40" : ""}`
                 }
         >
@@ -29,7 +29,7 @@ export default function HeroSection({hero, targetPage, solution, bg}: HeroSectio
             {isSolution &&
                 <Image
                     src={bg}
-                    className="solution-hero-bg-image absolute max-h-[540px] opacity-15 w-full h-full object-cover"
+                    className="solution-hero-bg-image absolute max-h-[540px] mix-blend-color-burn w-full h-full object-cover"
                     width={1920}
                     height={540}
                     alt=""

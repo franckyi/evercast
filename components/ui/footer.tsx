@@ -29,7 +29,7 @@ export default function Footer ({office, solutions}: FooterProps) {
             className={`footer-upper-part flex gap-4 lg:gap-12 flex-wrap text-4xl font-bold ${fontSecondary.className}`}
           >
             <a className="text-white" href={`tel:${office.meta.phone}`}>{office.meta.phone}</a>
-            <a href={`mailto:${office.meta.email}`}>{office.meta.email}</a>
+            <span>{office.meta.email}</span>
           </Container>
   
           <Container className="footer-middle-part flex lg:px-16 gap-12">
@@ -72,7 +72,6 @@ export default function Footer ({office, solutions}: FooterProps) {
               <Image
                 src={LogoWhite}
                 alt="Logo"
-                className=""
                 width={138}
                 height={50}
                 ></Image>
