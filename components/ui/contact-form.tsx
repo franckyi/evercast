@@ -199,7 +199,7 @@ export default function ContactForm() {
         </div>
 
         <ReCAPTCHA
-          sitekey={sitekey || ""}
+          sitekey="6LdjJ1QqAAAAALYJLhyxt_mpzD1EtRqO_qOo4XJ_"
           ref={captchaRef}
           onChange={handleCaptchaSuccess}
         />
