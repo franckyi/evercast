@@ -40,7 +40,7 @@ export default function ContactForm() {
   const [message, setMessage] = useState("");
   const [icon, setIcon] = useState("");
   const [captchaSuccess, setCaptchaSuccess] = useState(false);
-  const captchaRef = useRef(null);
+  const captchaRef = useRef<ReCAPTCHA | null>(null);
   const sitekey = process.env.RECAPTCHA_SITE_KEY;
 
   const isValidForm = () => {
@@ -55,14 +55,16 @@ export default function ContactForm() {
   }
 
   const handleCaptcha = async (e: FormEvent<HTMLFormElement>) => {
-    const inputVal = await e.target[0].value;
-    const token = captchaRef.current.getValue();
-    captchaRef.current.reset();
+    const form = e.target as HTMLFormElement;
+    const inputElement = form[0] as HTMLInputElement;
+    const inputVal = inputElement.value;
+    const token = captchaRef.current?.getValue();
+    captchaRef.current?.reset();
 
     await axios.post('http://localhost:2000/post', { inputVal, token })
     .then(res =>  console.log(res))
     .catch((error) => {
-    console.log(error);
+      console.log(error);
     })
   }
 
@@ -191,11 +193,11 @@ export default function ContactForm() {
           <p className="marketing-text text-primary-foreground font-medium">{acceptText.marketing}</p>
         </div>
 
-        <ReCAPTCHA
+        {sitekey && <ReCAPTCHA
           sitekey={sitekey}
           ref={captchaRef}
           onChange={handleCaptchaSuccess}
-        />
+        />}
         <Button
           type="submit"
           className={`mt-8 w-fit py-6 text-xl ${isValidForm() ? btnActiveClasses : btnInactiveClasses}`}
