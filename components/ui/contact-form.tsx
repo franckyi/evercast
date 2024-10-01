@@ -198,11 +198,11 @@ export default function ContactForm() {
           <p className="marketing-text text-primary-foreground font-medium">{acceptText.marketing}</p>
         </div>
 
-        {sitekey && <ReCAPTCHA
+        <ReCAPTCHA
           sitekey={sitekey}
           ref={captchaRef}
           onChange={handleCaptchaSuccess}
-        />}
+        />
         {isClient && (<Button
           type="submit"
           className={`mt-8 w-fit py-6 text-xl ${isValidForm() ? btnActiveClasses : btnInactiveClasses}`}
