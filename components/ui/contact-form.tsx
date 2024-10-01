@@ -1,5 +1,5 @@
 "use client";
-import { useState, ChangeEvent, FormEvent, useRef } from "react";
+import { useState, useEffect, ChangeEvent, FormEvent, useRef } from "react";
 import Image from "next/image"
 import { Button } from "./button";
 import ReCAPTCHA from "react-google-recaptcha"
@@ -42,6 +42,11 @@ export default function ContactForm() {
   const [captchaSuccess, setCaptchaSuccess] = useState(false);
   const captchaRef = useRef<ReCAPTCHA | null>(null);
   const sitekey = process.env.RECAPTCHA_SITE_KEY;
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const isValidForm = () => {
     return formData.name &&
@@ -198,14 +203,15 @@ export default function ContactForm() {
           ref={captchaRef}
           onChange={handleCaptchaSuccess}
         />}
-        <Button
+        {isClient && (<Button
           type="submit"
           className={`mt-8 w-fit py-6 text-xl ${isValidForm() ? btnActiveClasses : btnInactiveClasses}`}
           size="lg"
           disabled={!isValidForm()}
         >Wyślij
           <Image className="ml-4" src="/send.svg" width={20} height={20} alt="send icon" />
-        </Button>
+        </Button>)
+        }
 
       </form>
 
