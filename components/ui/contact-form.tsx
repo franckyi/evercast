@@ -41,7 +41,7 @@ export default function ContactForm() {
   const [icon, setIcon] = useState("");
   const [captchaSuccess, setCaptchaSuccess] = useState(false);
   const captchaRef = useRef<ReCAPTCHA | null>(null);
-  const sitekey = process.env.RECAPTCHA_SITE_KEY;
+  const sitekey= process.env.RECAPTCHA_SITE_KEY;
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -199,7 +199,7 @@ export default function ContactForm() {
         </div>
 
         <ReCAPTCHA
-          sitekey={sitekey}
+          sitekey={sitekey || ""}
           ref={captchaRef}
           onChange={handleCaptchaSuccess}
         />
