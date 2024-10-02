@@ -29,12 +29,12 @@ export default function WpBlockContainer({block, gallery}: {block: Block, galler
 
     return (
         <div className={`w-full p-8 flex ${partnersClasses} ${ctaMoreSolutionsClasses} dark:bg-gradient-to-b dark:from-black dark:to-bg-stone-950`}>
-            <div className={`w-full py-8 ${ctaContactClasses} ${ctaBlockBgColor} mx-auto max-w-5xl flex flex-wrap lg:flex-nowrap justify-between items-center lg:gap-28`}>
+            <div className={`w-full py-8 ${ctaContactClasses} ${ctaBlockBgColor} mx-auto max-w-5xl flex flex-wrap lg:flex-nowrap justify-between items-center md:gap-28`}>
                 
                 <div
                     className={`text-3xl
                         ${block.meta.block_name === "partners" ? "leading-6" : ""}
-                        ${block.meta.block_name === "cta_more_solutions" ? "lg:min-w-[480px] text-3xl" : ""}
+                        ${block.meta.block_name === "cta_more_solutions" ? "text-3xl" : ""}
                         max-w-[400] text-muted-foreground font-bold
                         ${fontSecondary.className}`
                     }

@@ -24,7 +24,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <Container>
         <BackButton />
         <h1 className="pt-12">{page.title.rendered}</h1>
-        <div dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
+        { page.content.rendered }
       </Container>
     </Section>
   );

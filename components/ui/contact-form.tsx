@@ -1,7 +1,9 @@
 "use client";
-import { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import { useState, useEffect, ChangeEvent, FormEvent, useRef } from "react";
 import Image from "next/image"
 import { Button } from "./button";
+import ReCAPTCHA from "react-google-recaptcha"
+import axios from "axios";
 
 type FormData = {
   name: string;
@@ -37,6 +39,14 @@ export default function ContactForm() {
   const [isMessageVisible, setIsMessageVisible] = useState(false);
   const [message, setMessage] = useState("");
   const [icon, setIcon] = useState("");
+  const [captchaSuccess, setCaptchaSuccess] = useState(false);
+  const captchaRef = useRef<ReCAPTCHA | null>(null);
+  const sitekey= process.env.RECAPTCHA_SITE_KEY;
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const isValidForm = () => {
     return formData.name &&
@@ -44,8 +54,27 @@ export default function ContactForm() {
             formData.phone &&
             formData.message &&
             boxRegulamin &&
-            boxMarketing ?
+            boxMarketing &&
+            captchaSuccess ?
             true : false;
+  }
+
+  const handleCaptcha = async (e: FormEvent<HTMLFormElement>) => {
+    const form = e.target as HTMLFormElement;
+    const inputElement = form[0] as HTMLInputElement;
+    const inputVal = inputElement.value;
+    const token = captchaRef.current?.getValue();
+    captchaRef.current?.reset();
+
+    await axios.post('http://localhost:2000/post', { inputVal, token })
+    .then(res =>  console.log(res))
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
+  const handleCaptchaSuccess = () => {
+    setCaptchaSuccess(true);
   }
 
   const handleChange = ( e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) => {
@@ -70,9 +99,10 @@ export default function ContactForm() {
 
   }
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Sending...");
+    
+    handleCaptcha(e);
 
     if ( isValidForm() ) {
 
@@ -86,6 +116,7 @@ export default function ContactForm() {
       }).then((res) => {
         console.log("Response received");
         setIsMessageVisible(true);
+        setCaptchaSuccess(false);
 
         if (res.status === 200) {
           console.log("Response succeeded!");
@@ -162,19 +193,25 @@ export default function ContactForm() {
           <p className="regulamin-text text-primary-foreground font-medium">{acceptText.regulamin}</p>
         </div>
 
-        <div className="mt-4 flex gap-4 items-start">
+        <div className="mt-4 mb-8 flex gap-4 items-start">
           <input type="checkbox" name="marketing" id="marketing" onChange={handleCheckbox} checked={boxMarketing} required />
           <p className="marketing-text text-primary-foreground font-medium">{acceptText.marketing}</p>
         </div>
 
-        <Button
+        <ReCAPTCHA
+          sitekey="6LdjJ1QqAAAAALYJLhyxt_mpzD1EtRqO_qOo4XJ_"
+          ref={captchaRef}
+          onChange={handleCaptchaSuccess}
+        />
+        {isClient && (<Button
           type="submit"
           className={`mt-8 w-fit py-6 text-xl ${isValidForm() ? btnActiveClasses : btnInactiveClasses}`}
           size="lg"
           disabled={!isValidForm()}
         >Wyślij
           <Image className="ml-4" src="/send.svg" width={20} height={20} alt="send icon" />
-        </Button>
+        </Button>)
+        }
 
       </form>
 

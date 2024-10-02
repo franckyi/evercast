@@ -29,7 +29,7 @@ export default function Footer ({office, solutions}: FooterProps) {
             className={`footer-upper-part flex gap-4 lg:gap-12 flex-wrap text-4xl font-bold ${fontSecondary.className}`}
           >
             <a className="text-white" href={`tel:${office.meta.phone}`}>{office.meta.phone}</a>
-            <a href={`mailto:${office.meta.email}`}>{office.meta.email}</a>
+            <span>{office.meta.email}</span>
           </Container>
   
           <Container className="footer-middle-part flex lg:px-16 gap-12">
@@ -66,13 +66,12 @@ export default function Footer ({office, solutions}: FooterProps) {
           <Container noBorderTop className="footer-bottom-part not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
             <div className="flex flex-wrap pt-8 max-w-5xl w-full gap-16 justify-between border-t border-muted-foreground">
               <ThemeToggle />
-              <p className="text-muted-foreground">
+              <p className="text-gray">
                 © Evercast 2013 - 2024 Wszsytkie prawa zastrzeżone. Designed by <a href="https://01unit.com">01UNIT</a>
               </p>
               <Image
                 src={LogoWhite}
                 alt="Logo"
-                className=""
                 width={138}
                 height={50}
                 ></Image>

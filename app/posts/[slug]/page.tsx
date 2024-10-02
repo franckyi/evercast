@@ -71,7 +71,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             alt={post.title.rendered}
           />
         </div>
-        <Article dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+        { post.content.rendered }
       </Container>
     </Section>
   );

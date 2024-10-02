@@ -21,7 +21,7 @@ export default function HeroSection({hero, targetPage, solution, bg}: HeroSectio
     return (
         <section
             className={
-                `min-h-[540px] z-20 bg-black dark:bg-gray-900 ${bgImage} text-stone-400
+                `min-h-[540px] z-20 bg-[#222] dark:bg-[#222] ${bgImage} text-stone-400
                 ${isSolution ? "relative lg:-mb-40" : ""}`
                 }
         >
@@ -29,7 +29,7 @@ export default function HeroSection({hero, targetPage, solution, bg}: HeroSectio
             {isSolution &&
                 <Image
                     src={bg}
-                    className="solution-hero-bg-image absolute max-h-[540px] opacity-15 w-full h-full object-cover"
+                    className="solution-hero-bg-image absolute max-h-[540px] mix-blend-color-burn w-full h-full object-cover"
                     width={1920}
                     height={540}
                     alt=""
@@ -49,9 +49,9 @@ export default function HeroSection({hero, targetPage, solution, bg}: HeroSectio
                     <div className={`mt-4 mb-8 lg:w-2/3 text-5xl tracking-wide text-accent dark:text-accent font-bold ${fontSecondary.className}`}>
                         {isHome ? hero.title.rendered : solution?.meta.short_desc}
                     </div>
-                    <div className="w-2/3 text-md">
+                    <article className="w-2/3 text-md">
                         {isHome ? parse(hero.content.rendered) : solutionExcerpt}
-                    </div>
+                    </article>
                     <Link href="/kontakt" title="kontakt z nami">
                         <Button className="w-[120] mt-8 my-2 lg:my-8 bg-gradient-to-r from-[#E7411B] to-[#B70D18] hover:from-[#B70D18] hover:to-[#B70D18] font-bold" size="lg">
                             Kontakt 

@@ -45,6 +45,13 @@ export const getGalleries = async (): Promise<Gallery[]> => {
     return galleries;
 }
 
+export const getGalleryBySolution = async (id: string): Promise<Gallery> => {
+    const res = await fetch(baseUrl + "/wp-json/wp/v2/gallery", revalidation);
+    let galleries: Gallery[] = await res.json();
+    const gallery = galleries.filter(gallery => gallery.meta.link_id === id)[0]
+    return gallery;
+}
+
 export const getGalleryById = async (id: number): Promise<Gallery> => {
     const res = await fetch(baseUrl + `/wp-json/wp/v2/gallery/${id}`, revalidation);
     const gallery: Gallery = await res.json();

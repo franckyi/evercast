@@ -3,7 +3,7 @@ export const mainMenu = {
   home: "/",
   oferta: "/oferta",
   kontakt: "/kontakt",
-  blog: "/posts",
+  // blog: "/posts",
 };
 
 export const contentMenu = {

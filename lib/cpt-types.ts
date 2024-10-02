@@ -99,7 +99,7 @@ export interface Solution {
         "section1_desc1": string,
         "section1_desc2": string,
         "section1_img": string,
-        "section2_gallery_id": string | null,
+        "section2_gallery_id": string,
         "section2_desc1": string,
         "section2_desc2": string,
         "section3_desc1": string,
