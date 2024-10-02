@@ -1,6 +1,5 @@
 'use client';
 import { ThemeToggle } from "@/components/theme/theme-toggle";
-import { contentMenu } from "@/menu.config";
 import { Section, Container } from "@/components/craft";
 import LogoWhite from "@/public/logo_white.svg";
 import Image from "next/image";
